@@ -1,0 +1,1110 @@
+{
+  "updated_at": "2026-11-05T17:37:00+09:00",
+  "last_attempt_at": "2026-11-05T17:37:00+09:00",
+  "status": "ok",
+  "error": null,
+  "sources": [
+    {
+      "category": "notice",
+      "board_id": "3202",
+      "name": "공지사항",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong"
+    },
+    {
+      "category": "letter",
+      "board_id": "3215",
+      "name": "가정통신문",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3215&m=0201&s=in_hyoseong"
+    }
+  ],
+  "notices": [
+    {
+      "id": "3202:34311516",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 수험표 교부 안내(졸업생용)",
+      "date": "2026-11-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34311516&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34311446",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 수험생 유의사항 안내",
+      "date": "2026-11-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34311446&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34310558",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "학부모 유자청 만들기 연수 안내",
+      "date": "2026-11-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34310558&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34305546",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027. 3. 1.자 교사초빙제 운영 공고",
+      "date": "2026-11-02",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34305546&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34275478",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 교육활동 보호 감수성 자가진단 실시 안내 가정통신문",
+      "date": "2026-10-23",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34275478&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34217238",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학기 1차시험 분할점수 안내 가정통신문",
+      "date": "2026-10-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34217238&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34211466",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 제2차 구입 예정 도서 목록",
+      "date": "2026-10-06",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34211466&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34204230",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "「교원의 학생생활지도에 관한 고시」에 따른 정당한 학생생활지도 안내 가정통신문",
+      "date": "2026-10-02",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34204230&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34169192",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2027. 3. 1.자 결대로자람학교 선정 안내",
+      "date": "2026-09-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34169192&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34168344",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학기 수행평가 세부기준안(학년별)",
+      "date": "2026-09-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34168344&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34168282",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학기 평가계획 (1~3학년)",
+      "date": "2026-09-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34168282&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34165996",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 학교폭력 감수성 자가진단 안내 가정통신문",
+      "date": "2026-09-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34165996&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34165992",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학기 학교폭력예방교육 가정통신문",
+      "date": "2026-09-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34165992&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34163240",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학기 1차시험 안내 가정통신문",
+      "date": "2026-09-21",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34163240&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34156928",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "(가정통신문) 정기시험 기출문제 열람 안내",
+      "date": "2026-09-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34156928&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34138036",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 학부모 선행교육 근절 연수",
+      "date": "2026-09-14",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34138036&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34130000",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "[안내] 제12회 인천수학축전 인천수학사랑지원단(학생위원) 모집",
+      "date": "2026-09-10",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34130000&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34109440",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "교육시설통합정보망 대국민포털 「우리학교365」 대국민 서비스 홍보",
+      "date": "2026-09-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34109440&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34057450",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2029학년도 대학수학능력시험 기본계획 안내",
+      "date": "2026-08-21",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34057450&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34044726",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 원서 접수 안내 (인천효성고 졸업생용)",
+      "date": "2026-08-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34044726&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34045010",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026 인천광역시 자살예방의 날 기념행사 안내",
+      "date": "2026-08-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34045010&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34041332",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 8월 을지연습 연계 민방위 훈련 가정통신문",
+      "date": "2026-08-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34041332&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34035174",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 수시모집 학교장추천 전형 접수 안내(기간연장 알림)",
+      "date": "2026-08-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34035174&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34032998",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 2학기 임시시간표 안내",
+      "date": "2026-08-12",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34032998&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34026562",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "학교안전 인식·만족도 조사 안내 가정통신문",
+      "date": "2026-08-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34026562&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:34026556",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "여름방학 및 휴가철 물놀이 안전수칙 안내 가정통신문",
+      "date": "2026-08-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=34026556&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:34005176",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 응시원서 온라인 사전입력 시스템 안내",
+      "date": "2026-07-20",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34005176&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33978400",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "물놀이 안전수칙 안내 가정통신문",
+      "date": "2026-07-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33978400&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33970628",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "신종 학교폭력(스파링·야차룰) 관련 예방 안내 가정통신문",
+      "date": "2026-07-10",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33970628&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33955992",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2027. 3. 1.자 결대로자람학교 공모 신청을 위한 학부모 의견 수렴 안내",
+      "date": "2026-07-06",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33955992&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33943362",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 시행 기본 계획 알림",
+      "date": "2026-07-02",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33943362&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33917816",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 2차시험 및 1학기말 과목별 분할점수 안내 가정통신문",
+      "date": "2026-06-24",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33917816&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33912624",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "출결관련 서류 안내",
+      "date": "2026-06-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33912624&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33912370",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "여름철 수상 안전수칙 안내 가정통신문",
+      "date": "2026-06-22",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33912370&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33903428",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 9월 모의평가 졸업생 응시 신청",
+      "date": "2026-06-17",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33903428&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33882648",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 2차시험 안내 가정통신문 (수정)",
+      "date": "2026-06-10",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33882648&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33878632",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 교복 구입비 수익자부담경비 안내 가정통신문",
+      "date": "2026-06-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33878632&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33877668",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "학교안전 인식·만족도 조사 실시 안내 가정통신문",
+      "date": "2026-06-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33877668&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33877660",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 신입(입학)생 교복(하복) 만족도 조사 가정통신문",
+      "date": "2026-06-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33877660&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33854456",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 6월 영양소식지 및 예정식단 가정통신문",
+      "date": "2026-06-01",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33854456&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33830192",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "결대로자람학교 종합평가 성찰보고서",
+      "date": "2026-05-26",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33830192&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33819856",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "식중독 예방 및 개인위생 관리 안내 가정통신문",
+      "date": "2026-05-21",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33819856&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33812458",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "(가정통신문)2026학년도 학교생활기록부 기재 안내",
+      "date": "2026-05-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33812458&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33786720",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026년 학생 식습관 및 학교급식 실태조사(학부모 및 교직원 대상) 안내",
+      "date": "2026-05-11",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33786720&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33781036",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 5월 민방위 훈련 안내 가정통신문",
+      "date": "2026-05-08",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33781036&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33779954",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "[안내] 교육공동체 성찰협의회 - 교육4주체 1차토론회",
+      "date": "2026-05-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33779954&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33779972",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 제12회 인천수학축전 '인천수학사랑지원단(학부모 위원)' 모집 안내",
+      "date": "2026-05-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33779972&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33771602",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 5월 영양소식지 및 예정식단 가정통신문",
+      "date": "2026-05-06",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33771602&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33732588",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 다자녀가정 신학년 학습준비비 지원 안",
+      "date": "2026-04-20",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33732588&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33730782",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 1차시험 분할점수 안내 가정통신문",
+      "date": "2026-04-20",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33730782&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33718390",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026년도 제2회 인천광역시교육청 교육공무직원 공개채용 시험 홍보",
+      "date": "2026-04-15",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33718390&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33713748",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 디지털튜터 채용 공고문",
+      "date": "2026-04-14",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33713748&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33712062",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "제25기(2026학년도) 학교운영위원회 구성결과 안내홍보",
+      "date": "2026-04-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33712062&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33710278",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "학교 교육활동 중 외부인 무단출입 및 영상촬영 발생 시 대응 안내 가정통신문",
+      "date": "2026-04-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33710278&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33708668",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 1차 학교폭력 실태조사 참여 안내 가정통신문",
+      "date": "2026-04-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33708668&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33701974",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 학교장 추천입학 대상자 선정 규정",
+      "date": "2026-04-10",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33701974&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33697918",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 2학년 수학여행 만족도 조사 결과 안내",
+      "date": "2026-04-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33697918&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33697878",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 2학년 수학여행 경비 정산 안내 가정통신문",
+      "date": "2026-04-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33697878&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33688392",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 제 1차 구입예정 도서 목록",
+      "date": "2026-04-08",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33688392&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33683766",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 1차시험 안내 가정통신문 (수정)",
+      "date": "2026-04-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33683766&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33683640",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026 학생정서행동특성검사 안내문",
+      "date": "2026-04-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33683640&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33682100",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "(가정통신문) 정기시험 기출문제 열람 안내",
+      "date": "2026-04-06",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33682100&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33678128",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 신입(입학)생 교복(동복) 만족도 조사 가정통신문",
+      "date": "2026-04-06",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33678128&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33676872",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "결대로자람학교 종합평가 교육공동체 학교 만족도 조사 안내",
+      "date": "2026-04-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33676872&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33663206",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 시행 기본 계획 알림",
+      "date": "2026-04-01",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33663206&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33656094",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 6월 모의평가 졸업생 응시 신청",
+      "date": "2026-04-01",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33656094&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33663088",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 평가계획 안내",
+      "date": "2026-04-01",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33663088&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33649472",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "인천광역시교육청 고등학교 학점 이수 인정 기준 안내",
+      "date": "2026-03-30",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33649472&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33641696",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "제25기 학교운영위원회 지역위원 당선자 공고",
+      "date": "2026-03-27",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33641696&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33639202",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "효성도서관과 함께하는 교육공동체 독서토론 모임 운영 안내",
+      "date": "2026-03-27",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33639202&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33639194",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 1학기 최소 성취수준 보장지도 및 추가학습에 대한 예방지도 안내 및 참여동의서",
+      "date": "2026-03-27",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33639194&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33631438",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 교육활동 침해 예방 계획 안내",
+      "date": "2026-03-26",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33631438&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33629334",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "미성년자 유괴·납치 예방 안전교육 안내 가정통신문",
+      "date": "2026-03-25",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33629334&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33625026",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "「2026학년도 항공우주아카데미」 신청 안내",
+      "date": "2026-03-24",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33625026&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33625010",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "『2026학년도 인천학생극지아카데미』신청 안내",
+      "date": "2026-03-24",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33625010&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33621028",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "학교 안전 정보, '우리학교365'에서 한눈에 확인!",
+      "date": "2026-03-24",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33621028&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33626640",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "픽시자전거 이용 교사 및 보호자 안전교육 안내 가정통신문",
+      "date": "2026-03-24",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33626640&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33611622",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "제25기 학교운영위원회 지역위원 선출안내",
+      "date": "2026-03-23",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33611622&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33618224",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 인천효성고등학교 학부모회 임원 당선자 공고 가정통신문",
+      "date": "2026-03-23",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33618224&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33599704",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026 학교운영위원회 교원위원 당선자 공고",
+      "date": "2026-03-19",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33599704&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33599688",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026 학교운영위원회 학부모위원 당선자 공고",
+      "date": "2026-03-19",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33599688&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33579532",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 보건일지 프로그램 개인정보보호 위탁계약서",
+      "date": "2026-03-16",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33579532&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33580720",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 고교학점제 변경 사항 안내",
+      "date": "2026-03-16",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33580720&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33580714",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 1, 2학년 창체동아리 신청 안내",
+      "date": "2026-03-16",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33580714&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33571788",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "학교운영위원회 교원위원 선거 공보 발송",
+      "date": "2026-03-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33571788&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33571750",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "학교운영위원회 학부모위원 선거 공보 발송",
+      "date": "2026-03-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33571750&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33565470",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "제 46회 인천광역시과학전람회 및 과학발명품경진대회 안내",
+      "date": "2026-03-12",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33565470&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33563814",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 3월 민방위 훈련 안내 가정통신문",
+      "date": "2026-03-12",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33563814&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33562066",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 학부모총회 및 학교설명회",
+      "date": "2026-03-11",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33562066&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33549882",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 식품알레르기 학생 건강기초 조사 실시 안내문",
+      "date": "2026-03-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33549882&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33533848",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 인천효성고등학교운영위원회 교원위원선출을 다음과 같이 공고합니다.",
+      "date": "2026-03-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33533848&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33533834",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 인천효성고등학교운영위원회 학부모위원 선출을 다음과 같이 공고합니다.",
+      "date": "2026-03-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33533834&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33532172",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 상반기 CCTV 설치 운영 자체 점검 결과 게시",
+      "date": "2026-03-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33532172&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33533708",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 학부모회 임원 선출 및 임원 후보 등록 안내 가정통신문",
+      "date": "2026-03-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33533708&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33530346",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 교육급여 바우처 안내",
+      "date": "2026-03-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33530346&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33521190",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 인천효성고등학교 영상정보처리기기(CCTV) 설치 운영 계획",
+      "date": "2026-03-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33521190&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33524028",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년도 교육비 지원 안내 가정통신문",
+      "date": "2026-03-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33524028&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33522212",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "학교문화 책임규약 의견수렴 안내 가정통신문",
+      "date": "2026-03-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33522212&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33519970",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 3월 영양소식지 및 예정식단 가정통신문",
+      "date": "2026-03-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33519970&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33513252",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "제25기(2026학년도) 인천효성고등학교운영위원회 위원 선출 일정과 사전 홍보",
+      "date": "2026-02-26",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33513252&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33507238",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 1학기 임시시간표 안내",
+      "date": "2026-02-25",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33507238&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33503230",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2025학년도 인천효성고 학교 평가 결과 보고",
+      "date": "2026-02-23",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33503230&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33495514",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 장애교사 보조인력(기간제) 모집 공고",
+      "date": "2026-02-12",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33495514&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33487512",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 제22회 졸업식 안내",
+      "date": "2026-02-03",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33487512&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33485508",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 교육공무직원(과학실무사) 채용 공고",
+      "date": "2026-01-30",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33485508&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33482890",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "운동부(볼링) 지도자를 공개 채용 재공고",
+      "date": "2026-01-27",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33482890&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33477478",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "학교 운동부(볼링) 지도자 공개 채용",
+      "date": "2026-01-19",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33477478&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33477084",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "☆2026학년도 신입생 임시반편성 안내☆",
+      "date": "2026-01-16",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33477084&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33475788",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "★ 2026학년도 신입생 예비소집 안내 ★",
+      "date": "2026-01-15",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33475788&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33475624",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2025년 귀속 연말정산 안내",
+      "date": "2026-01-15",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33475624&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33472952",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 중등임용(제2차) 시험일 제증명 민원 서류 발급 불가 안내(2026.1.20~1.21)",
+      "date": "2026-01-13",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33472952&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33469034",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "[알림] 2026학년도 자원봉사  학생보호인력(배움터지킴이) 위촉 공고",
+      "date": "2026-01-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33469034&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33463388",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "[인천교육소식] 인천세계로배움학교 2026 인천-뉴욕 고교생 국제교류 프로그램 안내",
+      "date": "2026-01-02",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33463388&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33463592",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 신입생 무상교복 지원 안내 가정통신문",
+      "date": "2026-01-02",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33463592&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33457532",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026년도 인천효성고등학교 신입생 체육복 사양서 공지",
+      "date": "2025-12-30",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33457532&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33455202",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 새별제 안내 가정통신문",
+      "date": "2025-12-29",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33455202&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33450780",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026년 동국대학교 [Dream Major(전공체험)] 프로그램 개최 안내 및 협조 요청",
+      "date": "2025-12-26",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33450780&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33435644",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2025 결대로자람학교 성장평가 결과보고서",
+      "date": "2025-12-17",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33435644&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33418246",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 본예산 편성 의견제출 안내",
+      "date": "2025-12-10",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33418246&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33413622",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 2학기 2회고사 및 학기말 분할점수 가정통신문",
+      "date": "2025-12-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33413622&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33413448",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "인권교육 가정통신문",
+      "date": "2025-12-09",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33413448&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33410734",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2026학년도 외국인 특별전형 입학설명회 안내 가정통신문",
+      "date": "2025-12-08",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33410734&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33408946",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 대학수학능력시험 성적통지표 온라인 출력안내(졸업생 등)",
+      "date": "2025-12-07",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33408946&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33407246",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 난독증 및 경계선지능 심층진단을 위한 보호자 직접 신청 안내",
+      "date": "2025-12-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33407246&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33406894",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 2학기 선행학습 근절  안내 가정통신문",
+      "date": "2025-12-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33406894&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33401736",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 학교보호인력(배움터지킴이) 만족도 설문조사 안내 가정통신문",
+      "date": "2025-12-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33401736&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33399552",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "「예비 고3(현 고2) 대상 대입면접 역량강화 프로그램」운영 안내 가정통신문",
+      "date": "2025-12-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33399552&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33398858",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 「학생·학부모 12월 진로특강」 안내 가정통신문",
+      "date": "2025-12-04",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33398858&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33368552",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 2학기 2회고사 실시 안내 가정통신문",
+      "date": "2025-11-25",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33368552&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33354038",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "2025학년도 따뜻한 말 나누기 가정통신문",
+      "date": "2025-11-19",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33354038&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33353318",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "인하공업전문대학 연계 진로체험프로그램 참가신청 안내 가정통신문",
+      "date": "2025-11-19",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33353318&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33345188",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026. 3. 1.자 교사초빙제 운영 공고",
+      "date": "2025-11-17",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33345188&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33348170",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "전국학교비정규직연대회의 총파업에 따른 대체급식 실시",
+      "date": "2025-11-17",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33348170&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3202:33344160",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2026학년도 대학수학능력시험 응시수수료 환불 신청 안내",
+      "date": "2025-11-15",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33344160&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0209&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33329958",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "보이스피싱(자녀 납치 빙자) 범죄 예방 교육 가정통신문",
+      "date": "2025-11-11",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33329958&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    },
+    {
+      "id": "3215:33306164",
+      "board_id": "3215",
+      "category": "letter",
+      "title": "아동 교통안전 예방 교육 가정통신문",
+      "date": "2025-11-05",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33306164&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
+    }
+  ]
+}

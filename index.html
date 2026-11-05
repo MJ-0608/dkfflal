@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="ko" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인천효성고등학교 주간 알리미</title>
+    <!-- Tailwind CSS Load -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Tailwind 다크모드 설정
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; }
+        
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Spinner animation */
+        .spinner { animation: spin 1s linear infinite; }
+        @keyframes spin { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(360deg); } 
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- 토스트 알림 메시지 (alert 대용) -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 text-xs font-bold">
+        <span id="toast-icon">✨</span>
+        <span id="toast-message">알림 메시지</span>
+    </div>
+
+    <!-- 상단 헤더 및 학교 바로가기 -->
+    <header class="bg-white dark:bg-slate-800/90 shadow-sm border-b border-slate-200 dark:border-slate-700/80 sticky top-0 z-20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
+            
+            <!-- 로고 및 타이틀 -->
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-lg font-extrabold shadow-md shadow-blue-500/20 transform -rotate-2">
+                        효성
+                    </div>
+                    <div>
+                        <h1 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                            인천효성고등학교
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full font-bold">스마트 알리미</span>
+                        </h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">시간표 · 급식 · 학사일정 · 메모장</p>
+                    </div>
+                </div>
+                
+                <!-- 모바일용 우측 퀵 버튼 (다크모드 & 설정) -->
+                <div class="flex md:hidden items-center gap-2">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-amber-300 hover:bg-slate-200 transition">
+                        <span class="dark:hidden text-base">🌙</span>
+                        <span class="hidden dark:inline text-base">☀️</span>
+                    </button>
+                    <button onclick="openClassModal()" class="px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-xs font-bold border border-blue-200 dark:border-blue-800">
+                        <span id="header-class-badge-mobile">1-1반</span> ⚙️
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 컨트롤 패널 (주 선택, 학년/반 구체화 버튼, 다크모드) -->
+            <div class="flex flex-wrap items-center justify-center gap-2 bg-slate-100/80 dark:bg-slate-800/80 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 w-full md:w-auto">
+                
+                <!-- 주차 이동 버튼 -->
+                <div class="flex items-center bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-slate-200 dark:border-slate-600 p-0.5">
+                    <button id="prev-week-btn" title="지난주" class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="today-btn" class="px-2.5 py-1 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 transition">오늘 주</button>
+                    <button id="next-week-btn" title="다음주" class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+
+                <!-- 날짜 선택 피커 -->
+                <input type="date" id="date-picker" class="bg-white dark:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 font-medium shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition cursor-pointer" />
+                
+                <!-- 학년 및 반 선택 구체화 버튼 -->
+                <button onclick="openClassModal()" class="bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5 shadow-sm transition active:scale-95">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="header-class-badge-desktop">1학년 1반</span>
+                    <span class="text-slate-400 dark:text-slate-400 text-[10px]">▼</span>
+                </button>
+
+                <!-- 조회 버튼 -->
+                <button id="search-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm active:scale-95 flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    조회
+                </button>
+
+                <!-- 다크 모드 토글 버튼 (데스크톱) -->
+                <button onclick="toggleDarkMode()" title="다크모드 전환" class="hidden md:flex items-center gap-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-amber-300 hover:bg-slate-50 dark:hover:bg-slate-600 transition shadow-sm">
+                    <span class="dark:hidden">🌙 다크</span>
+                    <span class="hidden dark:inline">☀️ 라이트</span>
+                </button>
+
+                <!-- 학교 공식 홈페이지 링크 -->
+                <a href="https://in-hyoseong.icehs.kr/main.do" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 bg-white dark:bg-slate-700 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-600 transition shadow-sm ml-1">
+                    <span>홈페이지</span>
+                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 카테고리 탭 네비게이션 (화면 길이 최소화 및 한눈에 보기 지원) -->
+    <nav class="bg-white/80 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/80 sticky top-[65px] z-10 backdrop-blur-md transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-1.5 overflow-x-auto custom-scrollbar py-2 text-xs font-bold">
+            <button onclick="switchTab('timetable')" id="tab-btn-timetable" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+                <span>📅</span> 주간 시간표
+            </button>
+            <button onclick="switchTab('meal-schedule')" id="tab-btn-meal-schedule" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+                <span>🍱</span> 급식 & 🗓️ 학사일정
+            </button>
+            <button onclick="switchTab('notice')" id="tab-btn-notice" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+                <span>📢</span> 학교 공지사항
+            </button>
+            <button onclick="switchTab('memo')" id="tab-btn-memo" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+                <span>📝</span> 스마트 메모장
+            </button>
+            <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-600 mx-1 shrink-0"></div>
+            <button onclick="switchTab('all')" id="tab-btn-all" class="tab-btn px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 text-slate-500 hover:text-slate-700 dark:text-slate-400">
+                <span>👀</span> 전체 보기
+            </button>
+        </div>
+    </nav>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 w-full flex-1 space-y-6">
+        
+        <!-- SECTION 1: 주간 시간표 패널 -->
+        <section id="panel-timetable" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden transition-colors">
+            <!-- 시간표 상단 헤더 -->
+            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex flex-wrap items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📅</span>
+                    <div>
+                        <h2 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">주간 시간표</h2>
+                        <p id="week-range-text" class="text-xs text-slate-500 dark:text-slate-400 font-medium">월요일 ~ 금요일 시간표 한눈에 보기</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span id="timetable-badge" class="bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-xs px-3 py-1 rounded-full font-bold shadow-sm">1학년 1반</span>
+                    <span class="hidden sm:inline-block text-xs bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full font-semibold">월·화 7교시 | 수·목·금 6교시</span>
+                </div>
+            </div>
+
+            <!-- 시간표 본문 (5열 그리드) -->
+            <div id="weekly-timetable-container" class="p-4 sm:p-6 overflow-x-auto custom-scrollbar">
+                <!-- Javascript에서 주간 5일 분량 시간표 그리드가 삽입됩니다. -->
+            </div>
+        </section>
+
+        <!-- SECTION 2: 급식 & 학사일정 패널 -->
+        <div id="panel-meal-schedule" class="tab-panel grid grid-cols-1 lg:grid-cols-2 gap-6">
+            
+            <!-- 1. 급식 카드 -->
+            <section class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[540px]">
+                <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                        <span class="text-xl">🍱</span> 오늘의 급식
+                    </h2>
+                    <span id="selected-meal-date" class="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 px-2.5 py-1 rounded-full">--/--</span>
+                </div>
+
+                <!-- 주간 요일 탭 선택 -->
+                <div id="meal-day-tabs" class="flex border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/30 dark:bg-slate-800/30 px-2 py-1.5 justify-around text-xs font-bold text-slate-500">
+                    <!-- 요일 버튼들이 동적으로 생성됩니다. -->
+                </div>
+
+                <!-- 급식 상세 내용 -->
+                <div id="meal-content" class="flex-1 overflow-y-auto p-5 custom-scrollbar">
+                    <!-- Dynamic content -->
+                </div>
+            </section>
+
+            <!-- 2. 인천효성고 학사일정 -->
+            <section class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[540px]">
+                <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                        <span class="text-xl">🗓️</span> 이달의 학사일정
+                    </h2>
+                    <div class="flex items-center gap-2">
+                        <span id="schedule-month-text" class="text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 px-2.5 py-1 rounded-full">--월</span>
+                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition">
+                            <span>홈페이지</span>↗
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 학사일정 데이터 출력 -->
+                <div id="schedule-content" class="flex-1 overflow-y-auto p-5 custom-scrollbar space-y-3">
+                    <!-- Dynamic content -->
+                </div>
+            </section>
+
+        </div>
+
+        <!-- SECTION 3: 학교 공식 알림 및 공지사항 패널 -->
+        <section id="panel-notice" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[580px]">
+            <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+                        <span class="text-xl">📢</span> 인천효성고 최신 소식 (공지사항 & 가정통신문)
+                    </h2>
+                    <span id="notice-status-badge" class="text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                        <span id="notice-status-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span id="notice-status-text">공식 홈페이지 주기적 수집</span>
+                    </span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs font-bold">
+                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline bg-blue-50 dark:bg-blue-900/40 px-2.5 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition flex items-center gap-1">
+                        공지사항 (3202) ↗
+                    </a>
+                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3215&m=0201&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 hover:underline bg-emerald-50 dark:bg-emerald-900/40 px-2.5 py-1 rounded-lg border border-emerald-100 dark:border-emerald-800 transition flex items-center gap-1">
+                        가정통신문 (3215) ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- 검색 및 카테고리 필터 -->
+            <div class="p-3 bg-slate-50/50 dark:bg-slate-800/30 border-b border-slate-100 dark:border-slate-700/60 space-y-2">
+                <div class="relative">
+                    <input type="text" id="notice-search-input" placeholder="인천효성고 공지 및 가정통신문 제목 검색..." class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                    <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+
+                <div id="notice-category-tabs" class="flex items-center justify-between text-[11px] font-bold">
+                    <div class="flex gap-1">
+                        <button onclick="filterNoticeCategory('all')" class="notice-tab-btn active px-2.5 py-1 rounded-lg bg-blue-600 text-white shadow-sm transition">전체 소식</button>
+                        <button onclick="filterNoticeCategory('notice')" class="notice-tab-btn px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition">공지사항 (boardID=3202)</button>
+                        <button onclick="filterNoticeCategory('letter')" class="notice-tab-btn px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition">가정통신문 (boardID=3215)</button>
+                    </div>
+                    <span class="hidden sm:inline text-[10px] text-slate-400">클릭 시 해당 원문으로 이동</span>
+                </div>
+            </div>
+
+            <!-- 공지사항 리스트 영역 -->
+            <div id="notice-list-container" class="p-3 flex-1 overflow-y-auto space-y-2 custom-scrollbar">
+                <!-- Javascript dynamic notices -->
+            </div>
+        </section>
+
+        <!-- SECTION 4: 개인 메모장 및 파일/이미지 첨부 보관함 패널 -->
+        <section id="panel-memo" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden transition-colors">
+            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📝</span>
+                    <div>
+                        <h2 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">나의 스마트 메모장 & 파일 보관함</h2>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">수행평가, 필기, 준비물 및 사진·파일 첨부 기능 (로컬 자동 저장)</p>
+                    </div>
+                </div>
+                <span class="text-xs bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full font-bold">개인 보관용</span>
+            </div>
+
+            <div class="p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <!-- 메모 작성 폼 (4열) -->
+                <div class="lg:col-span-5 bg-slate-50 dark:bg-slate-800/80 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 space-y-3.5">
+                    <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                        <span>✏️</span> 새 메모 및 파일 작성
+                    </h3>
+
+                    <input type="text" id="memo-title" placeholder="메모 제목 (예: 수학 수행평가, 준비물)" class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 dark:text-slate-100 outline-none focus:ring-2 focus:ring-blue-500 transition" />
+
+                    <!-- 카테고리 태그 선택 & 커스텀 태그 추가 -->
+                    <div class="space-y-1.5">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-400 text-[11px] font-bold">태그 선택:</span>
+                            <button type="button" onclick="toggleAddTagInput()" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5">
+                                <span>+ 태그 추가</span>
+                            </button>
+                        </div>
+
+                        <!-- 태그 추가 입력 폼 (기본 숨김) -->
+                        <div id="add-tag-form" class="hidden flex items-center gap-1.5 bg-white dark:bg-slate-700 p-1.5 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm">
+                            <input type="text" id="new-tag-input" placeholder="새 태그 이름 (예: 동아리)" class="flex-1 bg-transparent px-2 py-1 text-xs text-slate-800 dark:text-slate-100 outline-none" maxlength="10" onkeydown="if(event.key==='Enter'){event.preventDefault();addNewTag();}" />
+                            <button type="button" onclick="addNewTag()" class="bg-blue-600 text-white px-2.5 py-1 rounded-lg text-[11px] font-bold hover:bg-blue-700 transition">추가</button>
+                            <button type="button" onclick="toggleAddTagInput()" class="text-slate-400 hover:text-slate-600 text-xs px-1">✕</button>
+                        </div>
+
+                        <!-- 태그 버튼 목록 -->
+                        <div id="memo-tag-container" class="flex flex-wrap items-center gap-1.5 text-xs font-bold">
+                            <!-- JS dynamic tag buttons -->
+                        </div>
+                    </div>
+
+                    <!-- 수행평가 마감 기한 설정 (수행평가 태그 선택 시 노출) -->
+                    <div id="due-date-container" class="space-y-1 bg-amber-50 dark:bg-amber-900/30 p-2.5 rounded-xl border border-amber-200/80 dark:border-amber-800/60">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1">
+                                <span>⏰</span> 제출 / 마감 기한 (D-Day)
+                            </label>
+                            <span class="text-[10px] font-semibold text-amber-600 dark:text-amber-400">D-Day 자동 계산</span>
+                        </div>
+                        <input type="date" id="memo-due-date" class="w-full bg-white dark:bg-slate-700 border border-amber-200 dark:border-slate-600 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-100 font-medium outline-none focus:ring-2 focus:ring-amber-500" />
+                    </div>
+
+                    <textarea id="memo-content" rows="3" placeholder="메모 내용이나 세부 사항을 자유롭게 입력하세요..." class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-100 outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"></textarea>
+
+                    <!-- 하위 체크리스트 작성 영역 -->
+                    <div class="space-y-2 bg-slate-100/70 dark:bg-slate-700/40 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-600">
+                        <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300">☑️ 하위 체크리스트 추가 (선택)</label>
+                        <div class="flex items-center gap-1.5">
+                            <input type="text" id="checklist-item-input" placeholder="세부 할 일 (예: 자료 조사, 보고서 작성)" class="flex-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-100 outline-none focus:ring-1 focus:ring-blue-500" onkeydown="if(event.key==='Enter'){event.preventDefault();addTempChecklistItem();}" />
+                            <button type="button" onclick="addTempChecklistItem()" class="bg-indigo-600 text-white px-2.5 py-1.5 rounded-lg text-xs font-bold hover:bg-indigo-700 transition">추가</button>
+                        </div>
+                        <div id="temp-checklist-list" class="space-y-1 max-h-28 overflow-y-auto custom-scrollbar">
+                            <!-- 선택된 임시 체크리스트 항목들 -->
+                        </div>
+                    </div>
+
+                    <!-- 파일 / 이미지 첨부 -->
+                    <div class="space-y-1.5">
+                        <label class="block text-[11px] font-bold text-slate-500 dark:text-slate-400">📎 이미지 및 파일 첨부 (선택)</label>
+                        <input type="file" id="memo-file" accept="image/*,.pdf,.doc,.docx,.hwp,.txt,.zip" class="block w-full text-xs text-slate-500 dark:text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 dark:file:bg-blue-900/50 file:text-blue-700 dark:file:text-blue-300 hover:file:bg-blue-100 transition cursor-pointer" />
+                    </div>
+
+                    <button onclick="saveMemo()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition active:scale-95 flex items-center justify-center gap-1.5">
+                        <span>💾 메모 저장하기</span>
+                    </button>
+                </div>
+
+                <!-- 메모 및 저장된 파일 목록 (7열) -->
+                <div class="lg:col-span-7 flex flex-col space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                            <span>📚</span> 저장된 메모 목록 (<span id="memo-count">0</span>)
+                        </h3>
+                        <button onclick="clearAllMemos()" class="text-[11px] font-bold text-red-500 hover:text-red-700 hover:underline">전체 삭제</button>
+                    </div>
+
+                    <div id="memo-list-container" class="flex-1 max-h-[380px] overflow-y-auto space-y-3 custom-scrollbar pr-1">
+                        <!-- Javascript dynamic memo items -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 학년 및 반 선택 구체화 모달 -->
+    <div id="class-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700 transform transition-all animate-in fade-in zoom-in duration-200">
+            <div class="p-5 border-b border-slate-100 dark:border-slate-700/80 flex items-center justify-between bg-slate-50/80 dark:bg-slate-800">
+                <div class="flex items-center gap-2">
+                    <span class="text-xl">🏫</span>
+                    <h3 class="text-base font-bold text-slate-900 dark:text-white">학년 및 반 선택 설정</h3>
+                </div>
+                <button onclick="closeClassModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5">
+                <!-- 1. 학년 선택 -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400">1. 학년 선택</label>
+                    <div class="grid grid-cols-3 gap-2" id="modal-grade-buttons">
+                        <button onclick="setModalGrade(1)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">1학년</button>
+                        <button onclick="setModalGrade(2)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">2학년</button>
+                        <button onclick="setModalGrade(3)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">3학년</button>
+                    </div>
+                </div>
+
+                <!-- 2. 반 선택 (1반~12반 그리드) -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400">2. 반 선택</label>
+                    <div class="grid grid-cols-4 sm:grid-cols-6 gap-2" id="modal-class-buttons">
+                        <!-- 1반 ~ 12반 버튼 동적 생성 -->
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-2xl border border-blue-100 dark:border-blue-800 text-[11px] text-blue-800 dark:text-blue-300 flex items-center gap-2">
+                    <span>💡</span>
+                    <span>설정하신 학년과 반 정보는 자동 저장되며 접속 시 계속 유지됩니다.</span>
+                </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-100 dark:border-slate-700 flex items-center justify-end gap-2">
+                <button onclick="closeClassModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 transition">취소</button>
+                <button onclick="applyClassSelection()" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md transition">적용하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 이미지 / 첨부파일 모달 -->
+    <div id="file-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeFileModal()">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden p-4 relative" onclick="event.stopPropagation()">
+            <button onclick="closeFileModal()" class="absolute top-4 right-4 bg-slate-900/60 text-white p-1.5 rounded-full z-10 hover:bg-slate-900">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div id="file-modal-content" class="flex flex-col items-center justify-center max-h-[75vh] overflow-y-auto">
+                <!-- Image or File preview dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 공지사항 상세 모달 -->
+    <div id="notice-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700 transform transition-all animate-in fade-in zoom-in duration-200">
+            <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex items-start justify-between bg-slate-50/80 dark:bg-slate-800">
+                <div class="space-y-1 pr-4">
+                    <div class="flex items-center gap-2">
+                        <span id="modal-category-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">공지사항</span>
+                        <span id="modal-date" class="text-xs text-slate-400 font-medium">-</span>
+                    </div>
+                    <h3 id="modal-title" class="text-base font-bold text-slate-900 dark:text-white leading-snug">공지사항</h3>
+                </div>
+                <button onclick="closeNoticeModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="p-5 space-y-3">
+                <div class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed bg-slate-50/50 dark:bg-slate-700/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
+                    <p>이 화면에는 제목과 날짜, 분류를 표시합니다.</p>
+                    <p class="mt-1 text-slate-500 dark:text-slate-400">전체 내용과 첨부파일은 학교 홈페이지 원문에서 확인해 주세요.</p>
+                </div>
+            </div>
+
+            <div class="p-4 bg-slate-50 dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 flex items-center justify-end gap-2">
+                <button onclick="closeNoticeModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 transition">닫기</button>
+                <a id="modal-link-btn" href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition flex items-center gap-1.5">
+                    <span>원문 보기</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700/80 py-4 text-center text-xs text-slate-400 mt-8">
+        <p>인천효성고등학교 주간 시간표 · 급식 · 학사일정 · 스마트 알리미</p>
+        <p class="mt-1 text-[11px]">인천광역시 계양구 안남로 502 (인천효성고등학교)</p>
+    </footer>
+
+    <!-- 스크립트 영역 -->
+    <script>
+        const API_KEY = "931b3217ca4846bdad4cbb6d66ff8f83";
+        const SCHOOL_NAME = "인천효성고등학교";
+        let EDU_CODE = "";
+        let SCHOOL_CODE = "";
+
+        // 메인 탭 선택 상태 관리 (localStorage 연동)
+        let currentMainTab = localStorage.getItem('hyosung_active_tab') || 'timetable';
+
+        function switchTab(tabName) {
+            currentMainTab = tabName;
+            localStorage.setItem('hyosung_active_tab', tabName);
+
+            const allTabs = ['timetable', 'meal-schedule', 'notice', 'memo', 'all'];
+            allTabs.forEach(t => {
+                const btn = document.getElementById(`tab-btn-${t}`);
+                const panel = document.getElementById(`panel-${t}`);
+
+                if (btn) {
+                    if (t === tabName) {
+                        btn.className = "tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 bg-blue-600 text-white shadow-md font-bold";
+                    } else if (t === 'all') {
+                        btn.className = "tab-btn px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 text-slate-500 hover:text-slate-700 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700";
+                    } else {
+                        btn.className = "tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 bg-slate-100 dark:bg-slate-700/70 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 font-bold";
+                    }
+                }
+
+                if (panel) {
+                    if (tabName === 'all' || t === tabName) {
+                        panel.classList.remove('hidden');
+                    } else {
+                        panel.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        // 사용자 기본 설정 저장 변수 (localStorage 연동)
+        let userGrade = parseInt(localStorage.getItem('hyosung_grade')) || 1;
+        let userClass = parseInt(localStorage.getItem('hyosung_class')) || 1;
+        let tempSelectedGrade = userGrade;
+        let tempSelectedClass = userClass;
+
+        // 커스텀 태그 목록 및 선택된 태그 관리
+        const defaultTags = ['수행평가', '공부', '준비물', '일정', '기타'];
+        let availableMemoTags = JSON.parse(localStorage.getItem('hyosung_memo_tags')) || defaultTags;
+        let currentMemoTag = availableMemoTags[0] || '수행평가';
+
+        // 메모 작성 중 임시 체크리스트 배열
+        let tempChecklist = [];
+
+        // 메모 데이터 배열 (localStorage 연동)
+        let savedMemos = JSON.parse(localStorage.getItem('hyosung_memos')) || [];
+
+        // 토스트 메시지 띄우기 (alert 대체)
+        function showToast(message, icon = "✨") {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').textContent = message;
+            document.getElementById('toast-icon').textContent = icon;
+            toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-[-100px]', 'opacity-0');
+            }, 2500);
+        }
+
+        // 다크 모드 토글 및 저장
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('hyosung_dark_mode', isDark ? 'dark' : 'light');
+            showToast(isDark ? '다크 모드로 전환되었습니다.' : '라이트 모드로 전환되었습니다.', isDark ? '🌙' : '☀️');
+        }
+
+        // 저장된 다크 모드 초기화
+        function initDarkMode() {
+            const savedTheme = localStorage.getItem('hyosung_dark_mode');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // 학년 및 반 UI 배지 업데이트
+        function updateHeaderClassBadge() {
+            const text = `${userGrade}학년 ${userClass}반`;
+            document.getElementById('header-class-badge-desktop').textContent = text;
+            document.getElementById('header-class-badge-mobile').textContent = `${userGrade}-${userClass}반`;
+        }
+
+        // 학년 & 반 선택 모달 제어
+        function openClassModal() {
+            tempSelectedGrade = userGrade;
+            tempSelectedClass = userClass;
+            renderModalGradeButtons();
+            renderModalClassButtons();
+            document.getElementById('class-modal').classList.remove('hidden');
+        }
+
+        function closeClassModal() {
+            document.getElementById('class-modal').classList.add('hidden');
+        }
+
+        function setModalGrade(g) {
+            tempSelectedGrade = g;
+            renderModalGradeButtons();
+        }
+
+        function setModalClass(c) {
+            tempSelectedClass = c;
+            renderModalClassButtons();
+        }
+
+        function renderModalGradeButtons() {
+            const container = document.getElementById('modal-grade-buttons');
+            let html = '';
+            for (let g = 1; g <= 3; g++) {
+                const isSelected = (g === tempSelectedGrade);
+                html += `
+                    <button onclick="setModalGrade(${g})" class="py-2.5 rounded-xl font-extrabold text-xs transition border ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 hover:bg-slate-200'}">
+                        ${g}학년
+                    </button>
+                `;
+            }
+            container.innerHTML = html;
+        }
+
+        function renderModalClassButtons() {
+            const container = document.getElementById('modal-class-buttons');
+            let html = '';
+            for (let c = 1; c <= 12; c++) {
+                const isSelected = (c === tempSelectedClass);
+                html += `
+                    <button onclick="setModalClass(${c})" class="py-2 rounded-xl font-bold text-xs transition border ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-50 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:bg-slate-100'}">
+                        ${c}반
+                    </button>
+                `;
+            }
+            container.innerHTML = html;
+        }
+
+        // 학년/반 설정 적용 및 저장
+        function applyClassSelection() {
+            userGrade = tempSelectedGrade;
+            userClass = tempSelectedClass;
+
+            localStorage.setItem('hyosung_grade', userGrade);
+            localStorage.setItem('hyosung_class', userClass);
+
+            updateHeaderClassBadge();
+            closeClassModal();
+            showToast(`${userGrade}학년 ${userClass}반으로 변경되었습니다!`, "🏫");
+
+            fetchAllData();
+        }
+
+        // ================= 메모장 & 파일 첨부 기능 =================
+        function renderMemoTagButtons() {
+            const container = document.getElementById('memo-tag-container');
+            if (!container) return;
+
+            let html = '';
+            availableMemoTags.forEach(tag => {
+                const isSelected = (tag === currentMemoTag);
+                const isCustom = !defaultTags.includes(tag);
+
+                html += `
+                    <div class="inline-flex items-center">
+                        <button type="button" onclick="selectMemoTag('${tag}')" class="memo-tag-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition ${isSelected ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'}">
+                            ${tag}
+                        </button>
+                        ${isCustom ? `
+                            <button type="button" onclick="deleteCustomTag('${tag}')" title="태그 삭제" class="ml-1 text-slate-400 hover:text-red-500 text-[10px] font-bold px-1 transition">✕</button>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function selectMemoTag(tag) {
+            currentMemoTag = tag;
+            renderMemoTagButtons();
+
+            // 수행평가 태그이거나 설정된 태그일 때 마감일 입력창 표시 제어
+            const dueDateContainer = document.getElementById('due-date-container');
+            if (dueDateContainer) {
+                if (tag === '수행평가') {
+                    dueDateContainer.classList.remove('hidden');
+                } else {
+                    dueDateContainer.classList.add('hidden');
+                }
+            }
+        }
+
+        function toggleAddTagInput() {
+            const form = document.getElementById('add-tag-form');
+            if (form) {
+                form.classList.toggle('hidden');
+                if (!form.classList.contains('hidden')) {
+                    document.getElementById('new-tag-input').focus();
+                }
+            }
+        }
+
+        function addNewTag() {
+            const input = document.getElementById('new-tag-input');
+            const newTag = input.value.trim();
+
+            if (!newTag) {
+                showToast("태그 이름을 입력해주세요.", "⚠️");
+                return;
+            }
+
+            if (availableMemoTags.includes(newTag)) {
+                showToast("이미 존재하는 태그입니다.", "⚠️");
+                return;
+            }
+
+            availableMemoTags.push(newTag);
+            localStorage.setItem('hyosung_memo_tags', JSON.stringify(availableMemoTags));
+
+            currentMemoTag = newTag;
+            input.value = '';
+            toggleAddTagInput();
+            renderMemoTagButtons();
+            showToast(`'${newTag}' 태그가 추가되었습니다!`, "🏷️");
+        }
+
+        function deleteCustomTag(tag) {
+            availableMemoTags = availableMemoTags.filter(t => t !== tag);
+            localStorage.setItem('hyosung_memo_tags', JSON.stringify(availableMemoTags));
+
+            if (currentMemoTag === tag) {
+                currentMemoTag = availableMemoTags[0] || '수행평가';
+            }
+            renderMemoTagButtons();
+            showToast(`'${tag}' 태그가 삭제되었습니다.`, "🗑️");
+        }
+
+        // 임시 체크리스트 항목 추가/삭제 (메모 작성 폼 내부)
+        function addTempChecklistItem() {
+            const input = document.getElementById('checklist-item-input');
+            const text = input.value.trim();
+            if (!text) return;
+            tempChecklist.push({ id: Date.now(), text: text, done: false });
+            input.value = '';
+            renderTempChecklist();
+        }
+
+        function removeTempChecklistItem(id) {
+            tempChecklist = tempChecklist.filter(item => item.id !== id);
+            renderTempChecklist();
+        }
+
+        function renderTempChecklist() {
+            const container = document.getElementById('temp-checklist-list');
+            if (!container) return;
+            if (tempChecklist.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            let html = '';
+            tempChecklist.forEach(item => {
+                html += `
+                    <div class="flex items-center justify-between bg-white dark:bg-slate-700 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 text-xs">
+                        <span class="text-slate-700 dark:text-slate-200 font-medium">☑️ ${item.text}</span>
+                        <button type="button" onclick="removeTempChecklistItem(${item.id})" class="text-slate-400 hover:text-red-500 font-bold px-1">✕</button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        // D-Day 계산 함수
+        function getDDayInfo(dueDateStr) {
+            if (!dueDateStr) return null;
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const due = new Date(dueDateStr);
+            due.setHours(0, 0, 0, 0);
+
+            const diffTime = due - today;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (isNaN(diffDays)) return null;
+
+            if (diffDays === 0) {
+                return { text: 'D-Day (오늘 마감)', badgeClass: 'bg-red-500 text-white font-extrabold animate-pulse' };
+            } else if (diffDays > 0) {
+                return { 
+                    text: `D-${diffDays}`, 
+                    badgeClass: diffDays <= 3 
+                        ? 'bg-amber-500 text-white font-extrabold' 
+                        : 'bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 font-bold' 
+                };
+            } else {
+                return { text: `D+${Math.abs(diffDays)} (지남)`, badgeClass: 'bg-slate-300 dark:bg-slate-700 text-slate-600 dark:text-slate-400 font-semibold' };
+            }
+        }
+
+        // 메모 완료/해제 토글
+        function toggleMemoComplete(id) {
+            const memo = savedMemos.find(m => m.id === id);
+            if (memo) {
+                memo.completed = !memo.completed;
+                if (memo.completed && memo.checklist) {
+                    memo.checklist.forEach(i => i.done = true);
+                }
+                localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
+                renderMemos();
+                showToast(memo.completed ? "완료 처리되었습니다! 🎉" : "완료 상태가 해제되었습니다.", "✅");
+            }
+        }
+
+        // 체크리스트 하위 개별 항목 토글
+        function toggleChecklistItem(memoId, itemId) {
+            const memo = savedMemos.find(m => m.id === memoId);
+            if (memo && memo.checklist) {
+                const item = memo.checklist.find(i => i.id === itemId);
+                if (item) {
+                    item.done = !item.done;
+                    const allDone = memo.checklist.every(i => i.done);
+                    if (allDone && memo.checklist.length > 0) {
+                        memo.completed = true;
+                    } else if (!item.done && memo.completed) {
+                        memo.completed = false;
+                    }
+                    localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
+                    renderMemos();
+                }
+            }
+        }
+
+        // 메모 저장 (Base64 파일 읽기 지원)
+        async function saveMemo() {
+            const titleInput = document.getElementById('memo-title');
+            const contentInput = document.getElementById('memo-content');
+            const fileInput = document.getElementById('memo-file');
+            const dueDateInput = document.getElementById('memo-due-date');
+
+            const title = titleInput.value.trim();
+            const content = contentInput.value.trim();
+            const dueDate = dueDateInput ? dueDateInput.value : '';
+
+            if (!title && !content && tempChecklist.length === 0) {
+                showToast("제목이나 내용, 또는 체크리스트 항목을 입력해주세요.", "⚠️");
+                return;
+            }
+
+            let fileData = null;
+            if (fileInput.files && fileInput.files[0]) {
+                const file = fileInput.files[0];
+                if (file.size > 5 * 1024 * 1024) { // 5MB 제한
+                    showToast("파일 크기는 최대 5MB까지 첨부 가능합니다.", "⚠️");
+                    return;
+                }
+
+                fileData = await new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve({
+                        name: file.name,
+                        type: file.type,
+                        size: (file.size / 1024).toFixed(1) + " KB",
+                        data: e.target.result
+                    });
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            const now = new Date();
+            const newMemo = {
+                id: Date.now(),
+                title: title || (currentMemoTag === '수행평가' ? '수행평가 메모' : '제목 없음'),
+                content: content,
+                tag: currentMemoTag,
+                dueDate: dueDate,
+                completed: false,
+                checklist: [...tempChecklist],
+                date: `${now.getMonth()+1}/${now.getDate()} ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`,
+                file: fileData
+            };
+
+            savedMemos.unshift(newMemo);
+            try {
+                localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
+                showToast("메모 및 체크리스트가 저장되었습니다!", "💾");
+            } catch (e) {
+                showToast("저장 용량이 부족하여 파일 저장이 제한될 수 있습니다.", "⚠️");
+            }
+
+            // 입력 폼 초기화
+            titleInput.value = '';
+            contentInput.value = '';
+            fileInput.value = '';
+            if (dueDateInput) dueDateInput.value = '';
+            tempChecklist = [];
+            renderTempChecklist();
+
+            renderMemos();
+        }
+
+        // 메모 삭제
+        function deleteMemo(id) {
+            savedMemos = savedMemos.filter(m => m.id !== id);
+            localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
+            renderMemos();
+            showToast("메모가 삭제되었습니다.", "🗑️");
+        }
+
+        // 전체 메모 삭제
+        function clearAllMemos() {
+            if (savedMemos.length === 0) return;
+            savedMemos = [];
+            localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
+            renderMemos();
+            showToast("모든 메모가 삭제되었습니다.", "🧹");
+        }
+
+        // 메모 렌더링
+        function renderMemos() {
+            const container = document.getElementById('memo-list-container');
+            document.getElementById('memo-count').textContent = savedMemos.length;
+
+            if (savedMemos.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-48 text-slate-400 text-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl">
+                        <span class="text-3xl mb-1">✍️</span>
+                        <p class="text-xs font-bold text-slate-600 dark:text-slate-300">작성된 메모가 없습니다.</p>
+                        <p class="text-[11px] text-slate-400">수행평가와 세부 체크리스트를 기록해보세요!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            savedMemos.forEach(memo => {
+                const isImage = memo.file && memo.file.type.startsWith('image/');
+                const dDayInfo = memo.dueDate ? getDDayInfo(memo.dueDate) : null;
+                const isCompleted = !!memo.completed;
+
+                // 체크리스트 진행률 계산
+                let checklistHtml = '';
+                if (memo.checklist && memo.checklist.length > 0) {
+                    const doneCount = memo.checklist.filter(i => i.done).length;
+                    const percent = Math.round((doneCount / memo.checklist.length) * 100);
+
+                    checklistHtml = `
+                        <div class="mt-2.5 pt-2 border-t border-slate-200/60 dark:border-slate-600 space-y-1.5">
+                            <div class="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                                <span>체크리스트 (${doneCount}/${memo.checklist.length})</span>
+                                <span>${percent}%</span>
+                            </div>
+                            <div class="w-full bg-slate-200 dark:bg-slate-600 h-1.5 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full transition-all duration-300" style="width: ${percent}%"></div>
+                            </div>
+                            <div class="space-y-1 pt-1">
+                                ${memo.checklist.map(item => `
+                                    <label class="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/60 transition">
+                                        <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleChecklistItem(${memo.id}, ${item.id})" class="w-3.5 h-3.5 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
+                                        <span class="text-xs ${item.done ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-700 dark:text-slate-200'}">${item.text}</span>
+                                    </label>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="p-3.5 rounded-2xl border ${isCompleted ? 'bg-slate-100/80 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 opacity-80' : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200/80 dark:border-slate-600'} space-y-2 relative group transition hover:shadow-sm">
+                        
+                        <!-- 상단 바: 체크박스, 태그, D-Day, 삭제버튼 -->
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <button onclick="toggleMemoComplete(${memo.id})" class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-[11px] font-bold transition ${isCompleted ? 'bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300' : 'bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 text-slate-600 dark:text-slate-300 hover:bg-slate-100'}">
+                                    <span>${isCompleted ? '✅ 완료됨' : '⬜ 완료하기'}</span>
+                                </button>
+                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">${memo.tag}</span>
+                                ${dDayInfo ? `<span class="text-[10px] px-2 py-0.5 rounded-md ${dDayInfo.badgeClass}">${dDayInfo.text}</span>` : ''}
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-[10px] text-slate-400">${memo.date}</span>
+                                <button onclick="deleteMemo(${memo.id})" class="text-slate-400 hover:text-red-500 p-1 rounded-lg transition" title="메모 삭제">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 제목 및 마감 기한 표시 -->
+                        <div>
+                            <h4 class="text-xs font-extrabold text-slate-800 dark:text-slate-100 leading-snug ${isCompleted ? 'line-through text-slate-400 dark:text-slate-500' : ''}">${memo.title}</h4>
+                            ${memo.dueDate ? `<p class="text-[10px] text-amber-600 dark:text-amber-400 font-bold mt-0.5">📅 제출기한: ${memo.dueDate}</p>` : ''}
+                        </div>
+
+                        ${memo.content ? `<p class="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-line leading-relaxed ${isCompleted ? 'line-through text-slate-400' : ''}">${memo.content}</p>` : ''}
+
+                        <!-- 체크리스트 렌더링 -->
+                        ${checklistHtml}
+
+                        <!-- 첨부파일 및 이미지 미리보기 -->
+                        ${memo.file ? `
+                            <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-600 flex items-center justify-between gap-2 text-xs">
+                                <div class="flex items-center gap-2 truncate">
+                                    <span>${isImage ? '🖼️' : '📎'}</span>
+                                    <span class="font-bold text-slate-700 dark:text-slate-200 truncate">${memo.file.name}</span>
+                                    <span class="text-[10px] text-slate-400">(${memo.file.size})</span>
+                                </div>
+                                <button type="button" onclick="openFileModal(${memo.id})" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline shrink-0">
+                                    ${isImage ? '미리보기' : '다운로드'}
+                                </button>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function openFileModal(memoId) {
+            const memo = savedMemos.find(m => m.id === memoId);
+            if (!memo || !memo.file) return;
+
+            const container = document.getElementById('file-modal-content');
+            const isImage = memo.file.type.startsWith('image/');
+
+            if (isImage) {
+                container.innerHTML = `
+                    <img src="${memo.file.data}" alt="${memo.file.name}" class="max-w-full max-h-[65vh] object-contain rounded-2xl shadow-md mb-3" />
+                    <a href="${memo.file.data}" download="${memo.file.name}" class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl hover:bg-blue-700 transition">다운로드 (${memo.file.size})</a>
+                `;
+            } else {
+                container.innerHTML = `
+                    <div class="p-8 text-center space-y-4">
+                        <span class="text-5xl">📄</span>
+                        <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100">${memo.file.name}</h4>
+                        <p class="text-xs text-slate-400">파일 크기: ${memo.file.size}</p>
+                        <a href="${memo.file.data}" download="${memo.file.name}" class="inline-block px-5 py-2.5 bg-blue-600 text-white text-xs font-bold rounded-xl hover:bg-blue-700 transition">파일 다운로드</a>
+                    </div>
+                `;
+            }
+            document.getElementById('file-modal').classList.remove('hidden');
+        }
+
+        function closeFileModal() {
+            document.getElementById('file-modal').classList.add('hidden');
+        }
+
+        // ================= 인천효성고 공지사항 & 가정통신문 데이터 (notices.json 연동) =================
+        const NOTICES_URL = './notices.json';
+        const NOTICE_HEADER_STATES = {
+            loading: {
+                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300',
+                dot: 'bg-emerald-500 animate-pulse',
+                label: '공지 불러오는 중'
+            },
+            ok: {
+                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300',
+                dot: 'bg-emerald-500',
+                label: '정기 수집 완료'
+            },
+            'collection-error': {
+                badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300',
+                dot: 'bg-amber-500',
+                label: '수집 오류'
+            },
+            'fetch-error': {
+                badge: 'bg-red-100 text-red-700 dark:bg-red-900/60 dark:text-red-300',
+                dot: 'bg-red-500',
+                label: '불러오기 실패'
+            }
+        };
+        const NOTICE_STATUS_TONES = {
+            loading: 'border-slate-200 bg-slate-50 text-slate-500 dark:border-slate-600 dark:bg-slate-700/40 dark:text-slate-300',
+            success: 'border-emerald-100 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
+            warning: 'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
+            error: 'border-red-200 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-900/30 dark:text-red-300'
+        };
+
+        let hyoseongNotices = [];
+        let noticeCollectionState = 'loading';
+        let noticeCollectionError = '';
+        let noticeLastSuccessAt = null;
+        let currentNoticeCategory = 'all';
+        let noticeSearchQuery = '';
+
+        function updateNoticeHeaderStatus(state) {
+            const badge = document.getElementById('notice-status-badge');
+            const dot = document.getElementById('notice-status-dot');
+            const text = document.getElementById('notice-status-text');
+            if (!badge || !dot || !text) return;
+
+            const config = NOTICE_HEADER_STATES[state] || NOTICE_HEADER_STATES.loading;
+            badge.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 ' + config.badge;
+            dot.className = 'w-1.5 h-1.5 rounded-full ' + config.dot;
+            text.textContent = config.label;
+        }
+
+        function getNoticeCategoryMeta(category) {
+            if (category === 'letter') {
+                return {
+                    label: '가정통신문',
+                    badgeClass: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300'
+                };
+            }
+            return {
+                label: '공지사항',
+                badgeClass: 'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300'
+            };
+        }
+
+        function formatNoticeDate(value) {
+            if (typeof value !== 'string' || !value) return '';
+            return /^\d{4}-\d{2}-\d{2}$/.test(value) ? value.replace(/-/g, '.') : value;
+        }
+
+        function formatNoticeTimestamp(value) {
+            if (!value) return '';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return String(value);
+            try {
+                return date.toLocaleString('ko-KR', {
+                    timeZone: 'Asia/Seoul',
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            } catch (e) {
+                return date.toLocaleString('ko-KR');
+            }
+        }
+
+        function normalizeNoticePayload(data) {
+            if (!data || typeof data !== 'object' || Array.isArray(data)) return null;
+            if (data.status !== 'ok' && data.status !== 'error') return null;
+            if (!Array.isArray(data.notices)) return null;
+
+            const notices = data.notices.map(item => {
+                if (!item || typeof item !== 'object') return null;
+
+                const id = (typeof item.id === 'string' || typeof item.id === 'number') ? String(item.id).trim() : '';
+                const boardId = (typeof item.board_id === 'string' || typeof item.board_id === 'number') ? String(item.board_id).trim() : '';
+                const category = (item.category === 'notice' || item.category === 'letter') ? item.category : '';
+                const title = typeof item.title === 'string' ? item.title : '';
+                const date = (typeof item.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(item.date)) ? item.date : '';
+                const url = (typeof item.url === 'string' && /^https:\/\/in-hyoseong\.icehs\.kr\/[^\s]+$/i.test(item.url)) ? item.url : '';
+
+                if (!id || !boardId || !category || !title.trim() || !date || !url) return null;
+
+                return { id, board_id: boardId, category, title, date, url };
+            }).filter(Boolean);
+
+            return {
+                status: data.status,
+                error: typeof data.error === 'string' ? data.error : '',
+                updated_at: typeof data.updated_at === 'string' ? data.updated_at : null,
+                notices,
+                rawNoticeCount: data.notices.length
+            };
+        }
+
+        async function loadNotices() {
+            noticeCollectionState = 'loading';
+            updateNoticeHeaderStatus('loading');
+            renderNotices();
+
+            try {
+                const response = await fetch(NOTICES_URL, { cache: 'no-store' });
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+
+                const data = await response.json();
+                const payload = normalizeNoticePayload(data);
+                if (!payload) throw new Error('invalid notices.json');
+                if (payload.status === 'ok' && payload.rawNoticeCount > 0 && payload.notices.length === 0) {
+                    throw new Error('invalid notice records');
+                }
+
+                if (payload.status === 'error') {
+                    noticeCollectionState = 'collection-error';
+                    noticeCollectionError = payload.error;
+
+                    if (payload.notices.length > 0 && hyoseongNotices.length === 0) {
+                        hyoseongNotices = payload.notices;
+                    }
+                    if (payload.updated_at) {
+                        noticeLastSuccessAt = payload.updated_at;
+                    }
+                    updateNoticeHeaderStatus('collection-error');
+                } else {
+                    noticeCollectionState = 'ok';
+                    noticeCollectionError = '';
+                    hyoseongNotices = payload.notices;
+                    noticeLastSuccessAt = payload.updated_at;
+                    updateNoticeHeaderStatus('ok');
+                }
+            } catch (error) {
+                noticeCollectionState = 'fetch-error';
+                noticeCollectionError = '';
+                updateNoticeHeaderStatus('fetch-error');
+            }
+
+            renderNotices();
+        }
+
+        function appendNoticeStatus(container, message, tone) {
+            const status = document.createElement('div');
+            status.className = 'px-3 py-2 rounded-xl border text-[11px] font-semibold leading-relaxed ' +
+                (NOTICE_STATUS_TONES[tone] || NOTICE_STATUS_TONES.loading);
+            status.textContent = message;
+            container.appendChild(status);
+        }
+
+        function appendNoticeMessage(container, message) {
+            const empty = document.createElement('div');
+            empty.className = 'p-6 text-center text-xs text-slate-400';
+            empty.textContent = message;
+            container.appendChild(empty);
+        }
+
+        function appendNoticeLoading(container) {
+            const loading = document.createElement('div');
+            loading.className = 'flex items-center justify-center gap-2 p-6 text-xs font-semibold text-slate-400';
+
+            const spinner = document.createElement('span');
+            spinner.className = 'w-3.5 h-3.5 rounded-full border-2 border-slate-200 border-t-blue-500 animate-spin';
+            spinner.setAttribute('aria-hidden', 'true');
+
+            const label = document.createElement('span');
+            label.textContent = '공지사항을 불러오는 중입니다...';
+
+            loading.appendChild(spinner);
+            loading.appendChild(label);
+            container.appendChild(loading);
+        }
+
+        function appendNoticeRow(container, item) {
+            const categoryMeta = getNoticeCategoryMeta(item.category);
+
+            const row = document.createElement('div');
+            row.className = 'group p-3 rounded-2xl bg-slate-50 dark:bg-slate-700/50 hover:bg-blue-50/70 dark:hover:bg-slate-700 border border-slate-100 dark:border-slate-600/80 cursor-pointer transition flex items-center justify-between gap-2';
+            row.addEventListener('click', () => openNoticeModal(item.id));
+
+            const info = document.createElement('div');
+            info.className = 'space-y-1 min-w-0 flex-1';
+
+            const metaRow = document.createElement('div');
+            metaRow.className = 'flex items-center gap-1.5 flex-wrap';
+
+            const badge = document.createElement('span');
+            badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-md ' + categoryMeta.badgeClass;
+            badge.textContent = categoryMeta.label;
+
+            const date = document.createElement('span');
+            date.className = 'text-[11px] text-slate-400 font-medium';
+            date.textContent = formatNoticeDate(item.date);
+
+            const title = document.createElement('h3');
+            title.className = 'text-xs font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 transition truncate';
+            title.textContent = item.title;
+
+            metaRow.appendChild(badge);
+            metaRow.appendChild(date);
+            info.appendChild(metaRow);
+            info.appendChild(title);
+
+            const link = document.createElement('a');
+            link.href = item.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.className = 'text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline bg-blue-50 dark:bg-blue-900/40 px-2 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition shrink-0 flex items-center gap-0.5';
+            link.textContent = '원문 ↗';
+            link.addEventListener('click', (event) => event.stopPropagation());
+
+            row.appendChild(info);
+            row.appendChild(link);
+            container.appendChild(row);
+        }
+
+        function renderNotices() {
+            const container = document.getElementById('notice-list-container');
+            if (!container) return;
+
+            container.replaceChildren();
+            const hasNotices = hyoseongNotices.length > 0;
+
+            if (noticeCollectionState === 'loading') {
+                appendNoticeLoading(container);
+                return;
+            }
+
+            if (noticeCollectionState === 'fetch-error') {
+                appendNoticeStatus(container, '공지사항 파일을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.', 'error');
+                appendNoticeMessage(container, '파일을 읽지 못해 목록을 표시할 수 없습니다.');
+                return;
+            }
+
+            if (noticeCollectionState === 'collection-error' && !hasNotices) {
+                let message = '공지사항을 수집하지 못했습니다.';
+                if (noticeCollectionError) message += ' ' + noticeCollectionError;
+                appendNoticeStatus(container, message, 'error');
+                appendNoticeMessage(container, '학교 홈페이지에서 직접 확인해 주세요.');
+                return;
+            }
+
+            if (noticeCollectionState === 'collection-error') {
+                let warning = '공지 수집에 실패해 이전 목록을 표시합니다.';
+                if (noticeLastSuccessAt) {
+                    warning += ' 마지막 성공: ' + formatNoticeTimestamp(noticeLastSuccessAt);
+                } else {
+                    warning += ' 마지막 성공 시각을 확인할 수 없습니다.';
+                }
+                if (noticeCollectionError) warning += ' (' + noticeCollectionError + ')';
+                appendNoticeStatus(container, warning, 'warning');
+            } else if (noticeCollectionState === 'ok') {
+                const timestamp = formatNoticeTimestamp(noticeLastSuccessAt);
+                appendNoticeStatus(container, timestamp ? '수집 완료: ' + timestamp : '공지 수집을 완료했습니다.', 'success');
+            }
+
+            if (!hasNotices) {
+                appendNoticeMessage(container, '수집된 공지사항이 없습니다.');
+                return;
+            }
+
+            const normalizedQuery = noticeSearchQuery.trim().toLowerCase();
+            const filtered = hyoseongNotices.filter(item => {
+                const matchCategory = (currentNoticeCategory === 'all' || item.category === currentNoticeCategory);
+                const matchQuery = !normalizedQuery || item.title.toLowerCase().includes(normalizedQuery);
+                return matchCategory && matchQuery;
+            });
+
+            if (filtered.length === 0) {
+                appendNoticeMessage(container, normalizedQuery ? '검색 결과가 없습니다.' : '해당 분류에 등록된 공지가 없습니다.');
+                return;
+            }
+
+            filtered.forEach(item => appendNoticeRow(container, item));
+        }
+
+        function filterNoticeCategory(cat) {
+            currentNoticeCategory = cat;
+            
+            // 탭 스타일 변경
+            const btns = document.querySelectorAll('.notice-tab-btn');
+            btns.forEach(btn => {
+                btn.className = "notice-tab-btn px-2.5 py-1 rounded-lg transition " + 
+                    (btn.getAttribute('onclick').includes(`'${cat}'`)
+                        ? "bg-blue-600 text-white shadow-sm font-bold" 
+                        : "bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-bold");
+            });
+
+            renderNotices();
+        }
+
+        function openNoticeModal(id) {
+            const item = hyoseongNotices.find(n => String(n.id) === String(id));
+            if (!item) return;
+
+            const categoryMeta = getNoticeCategoryMeta(item.category);
+            const categoryBadge = document.getElementById('modal-category-badge');
+            categoryBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full ' + categoryMeta.badgeClass;
+            categoryBadge.textContent = categoryMeta.label;
+
+            document.getElementById('modal-title').textContent = item.title;
+            document.getElementById('modal-date').textContent = formatNoticeDate(item.date);
+            document.getElementById('modal-link-btn').href = item.url;
+
+            document.getElementById('notice-modal').classList.remove('hidden');
+        }
+
+        function closeNoticeModal() {
+            document.getElementById('notice-modal').classList.add('hidden');
+        }
+
+        // ================= 날짜 및 NEIS API 처리 =================
+        let currentDate = new Date();
+        let currentWeekDays = [];
+        let weeklyMealsMap = {};
+        let selectedMealDayIdx = 0;
+
+        const colorPalette = [
+            'bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300 border-red-200 dark:border-red-900',
+            'bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-900',
+            'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900',
+            'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900',
+            'bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900',
+            'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900',
+            'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-900',
+            'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-900',
+            'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-900',
+            'bg-pink-50 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-900'
+        ];
+
+        function getSubjectColor(subject) {
+            if (!subject || subject === '수업 없음') return 'bg-slate-50 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700';
+            let hash = 0;
+            for (let i = 0; i < subject.length; i++) hash = subject.charCodeAt(i) + ((hash << 5) - hash);
+            return colorPalette[Math.abs(hash) % colorPalette.length];
+        }
+
+        function formatDateToISO(d) {
+            const tzOffset = d.getTimezoneOffset() * 60000;
+            return (new Date(d - tzOffset)).toISOString().slice(0, 10);
+        }
+
+        function formatDateToYMD(d) {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}${month}${day}`;
+        }
+
+        function calculateWeekDays(targetDate) {
+            const d = new Date(targetDate);
+            const dayNum = d.getDay();
+            const diffToMon = dayNum === 0 ? -6 : 1 - dayNum;
+            const monday = new Date(d);
+            monday.setDate(d.getDate() + diffToMon);
+
+            const week = [];
+            for (let i = 0; i < 5; i++) {
+                const day = new Date(monday);
+                day.setDate(monday.getDate() + i);
+                week.push(day);
+            }
+            return week;
+        }
+
+        function getLoadingHtml(message = "데이터를 불러오는 중입니다...") {
+            return `
+                <div class="flex flex-col items-center justify-center h-48 text-slate-400">
+                    <svg class="w-8 h-8 mb-3 text-blue-500 spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <p class="font-medium text-xs dark:text-slate-300">${message}</p>
+                </div>
+            `;
+        }
+
+        async function initSchoolCode() {
+            document.getElementById('weekly-timetable-container').innerHTML = getLoadingHtml("인천효성고등학교 데이터 조회 중...");
+            document.getElementById('meal-content').innerHTML = getLoadingHtml();
+            document.getElementById('schedule-content').innerHTML = getLoadingHtml();
+
+            try {
+                const url = `https://open.neis.go.kr/hub/schoolInfo?KEY=${API_KEY}&Type=json&pIndex=1&pSize=1&SCHUL_NM=${encodeURIComponent(SCHOOL_NAME)}`;
+                const res = await fetch(url);
+                const data = await res.json();
+                
+                if (data.schoolInfo && data.schoolInfo[1].row) {
+                    EDU_CODE = data.schoolInfo[1].row[0].ATPT_OFCDC_SC_CODE;
+                    SCHOOL_CODE = data.schoolInfo[1].row[0].SD_SCHUL_CODE;
+                    fetchAllData();
+                } else {
+                    showError("학교 정보를 찾을 수 없습니다.");
+                }
+            } catch (e) {
+                showError("학교 정보를 불러오는데 실패했습니다.");
+            }
+        }
+
+        function showError(msg) {
+            const html = `<div class="p-8 text-center text-red-500 font-bold text-xs">${msg}</div>`;
+            document.getElementById('weekly-timetable-container').innerHTML = html;
+            document.getElementById('meal-content').innerHTML = html;
+            document.getElementById('schedule-content').innerHTML = html;
+        }
+
+        function fetchAllData() {
+            if (!EDU_CODE || !SCHOOL_CODE) return;
+
+            const datePickerVal = document.getElementById('date-picker').value;
+            if (datePickerVal) currentDate = new Date(datePickerVal);
+
+            document.getElementById('timetable-badge').textContent = `${userGrade}학년 ${userClass}반`;
+            
+            currentWeekDays = calculateWeekDays(currentDate);
+            const mon = currentWeekDays[0];
+            const fri = currentWeekDays[4];
+            document.getElementById('week-range-text').textContent = 
+                `${mon.getFullYear()}.${mon.getMonth()+1}.${mon.getDate()}(월) ~ ${fri.getMonth()+1}.${fri.getDate()}(금)`;
+
+            fetchWeeklyTimetable(userGrade, userClass);
+            fetchWeeklyMeals();
+            fetchAcademicSchedule(currentDate);
+        }
+
+        async function fetchWeeklyTimetable(grade, classNm) {
+            const dayNames = ['월요일', '화요일', '수요일', '목요일', '금요일'];
+            const promises = currentWeekDays.map(dayObj => {
+                const ymd = formatDateToYMD(dayObj);
+                const url = `https://open.neis.go.kr/hub/hisTimetable?KEY=${API_KEY}&Type=json&pIndex=1&pSize=20&ATPT_OFCDC_SC_CODE=${EDU_CODE}&SD_SCHUL_CODE=${SCHOOL_CODE}&ALL_TI_YMD=${ymd}&GRADE=${grade}&CLASS_NM=${classNm}`;
+                return fetch(url).then(r => r.json()).then(data => ({
+                    dateObj: dayObj, ymd: ymd, rows: (data.hisTimetable && data.hisTimetable[1]) ? data.hisTimetable[1].row : []
+                })).catch(() => ({ dateObj: dayObj, ymd: ymd, rows: [] }));
+            });
+
+            const results = await Promise.all(promises);
+            renderWeeklyTimetableGrid(results, dayNames);
+        }
+
+        function renderWeeklyTimetableGrid(weeklyResults, dayNames) {
+            const container = document.getElementById('weekly-timetable-container');
+            const todayYMD = formatDateToYMD(new Date());
+
+            let html = '<div class="grid grid-cols-1 md:grid-cols-5 gap-3 sm:gap-4 min-w-[700px] md:min-w-0">';
+
+            weeklyResults.forEach((dayData, idx) => {
+                const isToday = (dayData.ymd === todayYMD);
+                const maxPerio = (idx === 0 || idx === 1) ? 7 : 6;
+                const dayObj = dayData.dateObj;
+
+                const perioMap = {};
+                dayData.rows.forEach(r => {
+                    if (r.PERIO && r.ITRT_CNTNT) perioMap[parseInt(r.PERIO)] = r.ITRT_CNTNT.replace(/\*/g, '').trim();
+                });
+
+                html += `
+                    <div class="flex flex-col rounded-2xl border ${isToday ? 'border-blue-500 ring-2 ring-blue-500/20 bg-blue-50/20 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800'} overflow-hidden">
+                        <div class="p-3 text-center border-b ${isToday ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-700/60 text-slate-800 dark:text-slate-200'}">
+                            <span class="font-extrabold text-sm sm:text-base">${dayNames[idx]}</span>
+                            <span class="text-[11px] block opacity-80 font-medium">${dayObj.getMonth()+1}/${dayObj.getDate()}</span>
+                        </div>
+                        <div class="p-2.5 space-y-2 flex-1">
+                `;
+
+                for (let perio = 1; perio <= maxPerio; perio++) {
+                    const subject = perioMap[perio] || '수업 없음';
+                    const colorClass = getSubjectColor(subject);
+
+                    html += `
+                        <div class="flex items-center p-2 rounded-xl border text-xs ${colorClass}">
+                            <span class="w-5 text-center font-black text-slate-400 mr-1 text-[11px]">${perio}</span>
+                            <span class="font-bold truncate flex-1">${subject}</span>
+                        </div>
+                    `;
+                }
+
+                html += `</div></div>`;
+            });
+
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        async function fetchWeeklyMeals() {
+            const promises = currentWeekDays.map(dayObj => {
+                const ymd = formatDateToYMD(dayObj);
+                const url = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=${API_KEY}&Type=json&pIndex=1&pSize=5&ATPT_OFCDC_SC_CODE=${EDU_CODE}&SD_SCHUL_CODE=${SCHOOL_CODE}&MLSV_YMD=${ymd}`;
+                return fetch(url).then(r => r.json()).then(data => ({
+                    ymd: ymd, dateObj: dayObj, meals: (data.mealServiceDietInfo && data.mealServiceDietInfo[1]) ? data.mealServiceDietInfo[1].row : []
+                })).catch(() => ({ ymd: ymd, dateObj: dayObj, meals: [] }));
+            });
+
+            const results = await Promise.all(promises);
+            weeklyMealsMap = {};
+            results.forEach(item => { weeklyMealsMap[item.ymd] = item.meals; });
+
+            const todayYMD = formatDateToYMD(new Date());
+            const todayIdx = currentWeekDays.findIndex(d => formatDateToYMD(d) === todayYMD);
+            selectedMealDayIdx = todayIdx !== -1 ? todayIdx : 0;
+
+            renderMealTabs();
+            renderSelectedMeal();
+        }
+
+        function renderMealTabs() {
+            const tabContainer = document.getElementById('meal-day-tabs');
+            const dayLabels = ['월', '화', '수', '목', '금'];
+            
+            let html = '';
+            dayLabels.forEach((label, idx) => {
+                const isSelected = (idx === selectedMealDayIdx);
+                html += `
+                    <button onclick="selectMealDay(${idx})" class="px-3 py-1.5 rounded-xl font-bold transition ${isSelected ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200/60'}">
+                        ${label}
+                    </button>
+                `;
+            });
+            tabContainer.innerHTML = html;
+        }
+
+        function selectMealDay(idx) {
+            selectedMealDayIdx = idx;
+            renderMealTabs();
+            renderSelectedMeal();
+        }
+
+        function renderSelectedMeal() {
+            const mealContainer = document.getElementById('meal-content');
+            const dayObj = currentWeekDays[selectedMealDayIdx];
+            const ymd = formatDateToYMD(dayObj);
+            const meals = weeklyMealsMap[ymd] || [];
+
+            document.getElementById('selected-meal-date').textContent = `${dayObj.getMonth()+1}월 ${dayObj.getDate()}일`;
+
+            if (!meals || meals.length === 0) {
+                mealContainer.innerHTML = `<div class="p-8 text-center text-slate-400 font-bold text-xs">급식 정보가 없습니다. (휴일)</div>`;
+                return;
+            }
+
+            let html = '<div class="space-y-3">';
+            meals.forEach(meal => {
+                const dishList = meal.DDISH_NM.split('<br/>').map(dish => `<li class="py-1 border-b border-slate-100 dark:border-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-200">${dish.trim()}</li>`).join('');
+
+                html += `
+                    <div class="bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">${meal.MMEAL_SC_NM}</h3>
+                            <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/50 px-2 py-0.5 rounded-full">${meal.CAL_INFO}</span>
+                        </div>
+                        <ul>${dishList}</ul>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            mealContainer.innerHTML = html;
+        }
+
+        async function fetchAcademicSchedule(targetDate) {
+            const scheduleContainer = document.getElementById('schedule-content');
+            const year = targetDate.getFullYear();
+            const month = targetDate.getMonth() + 1;
+            document.getElementById('schedule-month-text').textContent = `${month}월 일정`;
+
+            const fromYmd = `${year}${String(month).padStart(2, '0')}01`;
+            const lastDay = new Date(year, month, 0).getDate();
+            const toYmd = `${year}${String(month).padStart(2, '0')}${String(lastDay).padStart(2, '0')}`;
+
+            const url = `https://open.neis.go.kr/hub/SchoolSchedule?KEY=${API_KEY}&Type=json&pIndex=1&pSize=100&ATPT_OFCDC_SC_CODE=${EDU_CODE}&SD_SCHUL_CODE=${SCHOOL_CODE}&AA_FROM_YMD=${fromYmd}&AA_TO_YMD=${toYmd}`;
+
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+                const apiRows = (data.SchoolSchedule && data.SchoolSchedule[1]) ? data.SchoolSchedule[1].row : [];
+                renderAcademicSchedule(apiRows, year, month);
+            } catch (e) {
+                renderAcademicSchedule([], year, month);
+            }
+        }
+
+        // 인천효성고등학교 주요 보완 학사일정 데이터베이스
+        const hyoseongBaseSchedule = {
+            3: [
+                { day: 2, name: '입학식 및 개학식', type: '학사' },
+                { day: 19, name: '학부모 총회 및 학교설명회', type: '행사' },
+                { day: 26, name: '전국연합학력평가 (모의고사)', type: '평가' }
+            ],
+            4: [
+                { day: 28, name: '1학기 1회고사 (지필평가)', type: '평가' },
+                { day: 29, name: '1학기 1회고사 (지필평가)', type: '평가' },
+                { day: 30, name: '1학기 1회고사 (지필평가)', type: '평가' }
+            ],
+            5: [
+                { day: 1, name: '1학기 1회고사 (지필평가)', type: '평가' },
+                { day: 15, name: '스승의 날 / 동아리 활동', type: '행사' },
+                { day: 22, name: '봄 현장체험학습 (체험활동)', type: '행사' }
+            ],
+            6: [
+                { day: 4, name: '전국연합학력평가 (모의고사)', type: '평가' },
+                { day: 25, name: '수업량 유연화 주간', type: '행사' }
+            ],
+            7: [
+                { day: 8, name: '1학기 2회고사 (지필평가)', type: '평가' },
+                { day: 9, name: '1학기 2회고사 (지필평가)', type: '평가' },
+                { day: 10, name: '1학기 2회고사 (지필평가)', type: '평가' },
+                { day: 11, name: '1학기 2회고사 (지필평가)', type: '평가' },
+                { day: 18, name: '1학기 여름방학식', type: '휴업' }
+            ],
+            8: [
+                { day: 12, name: '2학기 개학식', type: '학사' }
+            ],
+            9: [
+                { day: 3, name: '전국연합학력평가 (모의고사)', type: '평가' },
+                { day: 25, name: '동아리 발표회 및 체육한마당', type: '행사' }
+            ],
+            10: [
+                { day: 12, name: '2학기 1회고사 (지필평가)', type: '평가' },
+                { day: 13, name: '2학기 1회고사 (지필평가)', type: '평가' },
+                { day: 14, name: '2학기 1회고사 (지필평가)', type: '평가' },
+                { day: 15, name: '2학기 1회고사 (지필평가)', type: '평가' }
+            ],
+            11: [
+                { day: 13, name: '대학수학능력시험 (수능)', type: '평가' },
+                { day: 14, name: '수능 다음날 재량휴업일', type: '휴업' }
+            ],
+            12: [
+                { day: 14, name: '2학기 2회고사 (1, 2학년)', type: '평가' },
+                { day: 15, name: '2학기 2회고사 (1, 2학년)', type: '평가' },
+                { day: 16, name: '2학기 2회고사 (1, 2학년)', type: '평가' },
+                { day: 17, name: '2학기 2회고사 (1, 2학년)', type: '평가' },
+                { day: 21, name: '수업량 유연화 주간', type: '행사' },
+                { day: 29, name: '인천효성고 축제 (새별제)', type: '행사' },
+                { day: 31, name: '겨울방학식', type: '휴업' }
+            ],
+            1: [
+                { day: 2, name: '2학기 방학식', type: '휴업' }
+            ],
+            2: [
+                { day: 6, name: '제27회 졸업식 및 종업식', type: '학사' }
+            ]
+        };
+
+        function getScheduleCategoryBadge(eventName) {
+            if (eventName.includes('시험') || eventName.includes('고사') || eventName.includes('수능') || eventName.includes('평가')) {
+                return { label: '지필/평가', class: 'bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300' };
+            } else if (eventName.includes('방학') || eventName.includes('휴업') || eventName.includes('개교기념')) {
+                return { label: '휴업/방학', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300' };
+            } else if (eventName.includes('축제') || eventName.includes('새별제') || eventName.includes('체험') || eventName.includes('체육') || eventName.includes('유연화')) {
+                return { label: '학교행사', class: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300' };
+            } else {
+                return { label: '학사/일반', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300' };
+            }
+        }
+
+        function renderAcademicSchedule(events, year, month) {
+            const scheduleContainer = document.getElementById('schedule-content');
+            
+            // NEIS 이벤트 가공
+            let processedEvents = events
+                .filter(e => e.EVENT_NM && !e.EVENT_NM.includes('토요휴업일'))
+                .map(e => ({
+                    day: parseInt(e.AA_YMD.slice(6, 8)),
+                    name: e.EVENT_NM.trim(),
+                    desc: e.EVENT_CNTNT ? e.EVENT_CNTNT.trim() : ''
+                }));
+
+            // NEIS 데이터가 부족하거나 없을 경우 효성고 기본 학사일정 병합
+            if (processedEvents.length === 0 && hyoseongBaseSchedule[month]) {
+                processedEvents = hyoseongBaseSchedule[month].map(item => ({
+                    day: item.day,
+                    name: item.name,
+                    desc: '인천효성고등학교 공식 학사일정'
+                }));
+            }
+
+            // 날짜 순 정렬
+            processedEvents.sort((a, b) => a.day - b.day);
+
+            if (processedEvents.length === 0) {
+                scheduleContainer.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-48 text-slate-400 text-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl">
+                        <span class="text-3xl mb-1">🗓️</span>
+                        <p class="text-xs font-bold text-slate-600 dark:text-slate-300">이달의 등록된 학사일정이 없습니다.</p>
+                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="mt-2 text-[11px] text-blue-600 dark:text-blue-400 hover:underline font-bold">
+                            학교 홈페이지 학사일정 직접 확인하기 ↗
+                        </a>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            processedEvents.forEach(item => {
+                const badge = getScheduleCategoryBadge(item.name);
+                html += `
+                    <div class="flex items-center justify-between p-3 rounded-2xl border border-slate-100 dark:border-slate-700/80 bg-slate-50 dark:bg-slate-700/40 hover:bg-blue-50/50 dark:hover:bg-slate-700 transition">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex flex-col items-center justify-center font-black text-xs shrink-0 shadow-sm">
+                                <span class="text-[9px] font-medium opacity-80">${month}월</span>
+                                <span>${item.day}일</span>
+                            </div>
+                            <div class="space-y-0.5">
+                                <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">${item.name}</h3>
+                                ${item.desc ? `<p class="text-[10px] text-slate-400 dark:text-slate-400">${item.desc}</p>` : ''}
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 ${badge.class}">
+                            ${badge.label}
+                        </span>
+                    </div>
+                `;
+            });
+            scheduleContainer.innerHTML = html;
+        }
+
+        // 초기 시작 이벤트
+        document.addEventListener('DOMContentLoaded', () => {
+            initDarkMode();
+            updateHeaderClassBadge();
+
+            const datePicker = document.getElementById('date-picker');
+            datePicker.value = formatDateToISO(currentDate);
+
+            document.getElementById('search-btn').addEventListener('click', () => {
+                if (datePicker.value) currentDate = new Date(datePicker.value);
+                fetchAllData();
+            });
+
+            datePicker.addEventListener('change', (e) => {
+                if (e.target.value) {
+                    currentDate = new Date(e.target.value);
+                    fetchAllData();
+                }
+            });
+
+            document.getElementById('prev-week-btn').addEventListener('click', () => {
+                currentDate.setDate(currentDate.getDate() - 7);
+                datePicker.value = formatDateToISO(currentDate);
+                fetchAllData();
+            });
+
+            document.getElementById('next-week-btn').addEventListener('click', () => {
+                currentDate.setDate(currentDate.getDate() + 7);
+                datePicker.value = formatDateToISO(currentDate);
+                fetchAllData();
+            });
+
+            document.getElementById('today-btn').addEventListener('click', () => {
+                currentDate = new Date();
+                datePicker.value = formatDateToISO(currentDate);
+                fetchAllData();
+            });
+
+            const noticeSearchInput = document.getElementById('notice-search-input');
+            if (noticeSearchInput) {
+                noticeSearchInput.addEventListener('input', (e) => {
+                    noticeSearchQuery = e.target.value;
+                    renderNotices();
+                });
+            }
+
+            loadNotices();
+            renderMemos();
+            renderMemoTagButtons();
+            selectMemoTag(currentMemoTag);
+            switchTab(currentMainTab);
+            initSchoolCode();
+        });
+    </script>
+</body>
+</html>
