@@ -1,0 +1,117 @@
+name: Update school notices and deploy Pages
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 23,3,9 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update-school-notices
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out default branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install collector dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Collect notices
+        id: collect
+        continue-on-error: true
+        run: python collect_notices.py --output notices.json
+
+      - name: Validate notices snapshot
+        run: |
+          python - <<'PY'
+          import json
+          import pathlib
+          import sys
+
+          path = pathlib.Path("notices.json")
+          if not path.is_file():
+              sys.exit("notices.json is missing; refusing to deploy")
+
+          try:
+              document = json.loads(path.read_text(encoding="utf-8"))
+          except Exception as exc:
+              sys.exit(f"notices.json is corrupt: {exc}")
+
+          required = {
+              "updated_at",
+              "last_attempt_at",
+              "status",
+              "error",
+              "sources",
+              "notices",
+          }
+          if not isinstance(document, dict) or required - set(document):
+              sys.exit("notices.json is corrupt: invalid schema")
+          if document.get("status") not in {"ok", "error"}:
+              sys.exit("notices.json is corrupt: invalid status")
+          if not isinstance(document.get("sources"), list):
+              sys.exit("notices.json is corrupt: invalid sources")
+          if not isinstance(document.get("notices"), list):
+              sys.exit("notices.json is corrupt: invalid notices")
+          PY
+
+      - name: Commit updated notices
+        run: |
+          if [ -z "$(git status --porcelain -- notices.json)" ]; then
+            echo "notices.json is unchanged"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- notices.json
+          git commit -m "Update school notices [skip ci]"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Stage Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp index.html notices.json _site/
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report collector failure after deploy
+        if: always() && steps.collect.outcome == 'failure'
+        run: |
+          if [ "${{ steps.deployment.outcome }}" = "success" ]; then
+            echo "::error::Notice collection failed; the retained notices snapshot was deployed."
+          else
+            echo "::error::Notice collection failed; the retained snapshot was not deployed."
+          fi
+          exit 1
