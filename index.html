@@ -3,149 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>인천효성고등학교 주간 알리미</title>
+    <title>인천효성고등학교 주간 알리미 ✨</title>
     <!-- Tailwind CSS Load -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        // Tailwind 다크모드 설정
+        // Tailwind 다크모드 및 귀여운 파스텔 컬러 확장 설정
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        cute: ['Jua', 'Gowun Dodum', 'sans-serif'],
+                        body: ['Gowun Dodum', 'Quicksand', 'sans-serif'],
+                    },
                     colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                        }
+                        cream: '#FFF9FB',
+                        night: '#1A1625',
+                        nightCard: '#241F33',
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- 귀여운 둥글둥글 한글/영문 구글 폰트 로드 (주아체, 고운돋움, Quicksand) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; }
-        
-        /* Custom Scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        /* 기본 본문 폰트 설정 */
+        body { 
+            font-family: 'Quicksand', 'Gowun Dodum', sans-serif;
+            background-color: #FFF8FA;
+            background-image: radial-gradient(#FBCFE8 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        /* 다크모드 배경 (포근한 밤하늘 별빛 패턴) */
+        .dark body {
+            background-color: #191524;
+            background-image: radial-gradient(#352C4D 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+
+        /* 제목 및 강조 텍스트용 귀여운 폰트 클래스 */
+        .font-cute {
+            font-family: 'Quicksand', 'Jua', sans-serif;
+            letter-spacing: 0.01em;
+        }
+
+        /* 말랑말랑 통통 튀는 버튼 인터랙션 */
+        .btn-bouncy {
+            transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, background-color 0.2s ease;
+        }
+        .btn-bouncy:hover {
+            transform: translateY(-2px);
+        }
+        .btn-bouncy:active {
+            transform: translateY(1px) scale(0.97);
+        }
+
+        /* 둥실둥실 떠다니는 마스코트 애니메이션 */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(-3deg); }
+            50% { transform: translateY(-4px) rotate(3deg); }
+        }
+        .animate-float {
+            animation: floatSlow 3.2s ease-in-out infinite;
+        }
+
+        /* 반짝반짝 별 애니메이션 */
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        .animate-twinkle {
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        /* 귀여운 커스텀 스크롤바 */
+        .custom-scrollbar::-webkit-scrollbar { width: 7px; height: 7px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #F9A8D4; border-radius: 9999px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #5B4B8A; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #F472B6; }
         
-        /* Spinner animation */
+        /* 스피너 애니메이션 */
         .spinner { animation: spin 1s linear infinite; }
         @keyframes spin { 
             from { transform: rotate(0deg); } 
             to { transform: rotate(360deg); } 
         }
+
+        /* 모눈종이 메모장 느낌 배경 */
+        .memo-grid-bg {
+            background-image: linear-gradient(to right, rgba(244, 114, 182, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(244, 114, 182, 0.08) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
+        .dark .memo-grid-bg {
+            background-image: linear-gradient(to right, rgba(167, 139, 250, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(167, 139, 250, 0.08) 1px, transparent 1px);
+            background-size: 18px 18px;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
+<body class="text-slate-700 dark:text-purple-100 min-h-screen flex flex-col transition-colors duration-300">
 
-    <!-- 토스트 알림 메시지 (alert 대용) -->
-    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-100px] opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2 text-xs font-bold">
-        <span id="toast-icon">✨</span>
+    <!-- 토스트 알림 메시지 (폭신폭신 구름 말풍선 스타일) -->
+    <div id="toast" class="fixed top-5 right-5 z-50 transform translate-y-[-120px] opacity-0 transition-all duration-300 pointer-events-none bg-white dark:bg-nightCard text-pink-600 dark:text-pink-300 border-2 border-pink-200 dark:border-purple-700 px-4 py-3 rounded-full shadow-[0_6px_20px_rgba(244,114,182,0.25)] flex items-center gap-2 text-xs font-bold">
+        <span id="toast-icon" class="text-base">✨</span>
         <span id="toast-message">알림 메시지</span>
     </div>
 
     <!-- 상단 헤더 및 학교 바로가기 -->
-    <header class="bg-white dark:bg-slate-800/90 shadow-sm border-b border-slate-200 dark:border-slate-700/80 sticky top-0 z-20 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col md:flex-row items-center justify-between gap-4">
+    <header class="bg-white/90 dark:bg-nightCard/90 shadow-[0_4px_20px_rgba(251,207,232,0.35)] dark:shadow-none border-b-2 border-pink-100 dark:border-purple-900/70 sticky top-0 z-20 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex flex-col md:flex-row items-center justify-between gap-3.5">
             
-            <!-- 로고 및 타이틀 -->
+            <!-- 로고 및 귀여운 새별이 마스코트 타이틀 -->
             <div class="flex items-center justify-between w-full md:w-auto">
                 <div class="flex items-center gap-3">
-                    <div class="w-11 h-11 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center text-white text-lg font-extrabold shadow-md shadow-blue-500/20 transform -rotate-2">
-                        효성
+                    <!-- 인천효성고 '새별' 별 캐릭터 마스코트 SVG -->
+                    <div class="w-12 h-12 bg-gradient-to-br from-pink-200 via-rose-200 to-amber-100 dark:from-purple-800 dark:to-pink-900 rounded-[1.25rem] border-2 border-pink-300 dark:border-pink-700/60 flex items-center justify-center shadow-[0_3px_0_0_#f9a8d4] dark:shadow-[0_3px_0_0_#581c87] animate-float shrink-0">
+                        <svg class="w-9 h-9" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- 통통한 별 몸통 -->
+                            <path d="M32 6L39.6 21.4L56.6 23.9L44.3 35.9L47.2 52.8L32 44.8L16.8 52.8L19.7 35.9L7.4 23.9L24.4 21.4L32 6Z" fill="#FDE047" stroke="#F59E0B" stroke-width="3" stroke-linejoin="round"/>
+                            <!-- 반짝 하이라이트 -->
+                            <circle cx="24" cy="22" r="2.2" fill="#FEF9C3"/>
+                            <!-- 귀여운 눈 -->
+                            <circle cx="26.5" cy="31" r="2.3" fill="#475569"/>
+                            <circle cx="37.5" cy="31" r="2.3" fill="#475569"/>
+                            <circle cx="25.8" cy="30.2" r="0.8" fill="white"/>
+                            <circle cx="36.8" cy="30.2" r="0.8" fill="white"/>
+                            <!-- 발그레 볼터치 -->
+                            <ellipse cx="22.5" cy="34.5" rx="2.8" ry="1.6" fill="#FB7185" opacity="0.7"/>
+                            <ellipse cx="41.5" cy="34.5" rx="2.8" ry="1.6" fill="#FB7185" opacity="0.7"/>
+                            <!-- 방긋 웃는 입 -->
+                            <path d="M29.5 34.5C30.5 36.2 33.5 36.2 34.5 34.5" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <div>
-                        <h1 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
-                            인천효성고등학교
-                            <span class="text-xs bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full font-bold">스마트 알리미</span>
+                        <h1 class="font-cute text-xl sm:text-2xl text-slate-800 dark:text-white flex items-center gap-2">
+                            <span>인천효성고등학교</span>
+                            <span class="text-xs bg-gradient-to-r from-pink-400 to-rose-400 text-white px-2.5 py-0.5 rounded-full shadow-sm font-sans font-bold">알리미 ✨</span>
                         </h1>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">시간표 · 급식 · 학사일정 · 메모장</p>
+                        <p class="text-xs text-pink-500 dark:text-pink-300 font-bold flex items-center gap-1">
+                            <span>🌸 시간표 · 냠냠급식 · 학사일정 · 다꾸메모</span>
+                        </p>
                     </div>
                 </div>
                 
-                <!-- 모바일용 우측 퀵 버튼 (다크모드 & 설정) -->
+                <!-- 모바일용 우측 퀵 버튼 (다크모드 & 반 설정) -->
                 <div class="flex md:hidden items-center gap-2">
-                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-amber-300 hover:bg-slate-200 transition">
+                    <button onclick="toggleDarkMode()" class="btn-bouncy p-2 rounded-2xl bg-amber-50 dark:bg-purple-900/60 border border-amber-200 dark:border-purple-700 text-amber-500 dark:text-amber-300 shadow-sm">
                         <span class="dark:hidden text-base">🌙</span>
                         <span class="hidden dark:inline text-base">☀️</span>
                     </button>
-                    <button onclick="openClassModal()" class="px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-xs font-bold border border-blue-200 dark:border-blue-800">
-                        <span id="header-class-badge-mobile">1-1반</span> ⚙️
+                    <button onclick="openClassModal()" class="btn-bouncy px-3 py-1.5 rounded-2xl bg-pink-50 dark:bg-pink-950/60 text-pink-600 dark:text-pink-300 text-xs font-bold border-2 border-pink-200 dark:border-pink-800">
+                        <span id="header-class-badge-mobile">1-1반</span> 🎀
                     </button>
                 </div>
             </div>
             
-            <!-- 컨트롤 패널 (주 선택, 학년/반 구체화 버튼, 다크모드) -->
-            <div class="flex flex-wrap items-center justify-center gap-2 bg-slate-100/80 dark:bg-slate-800/80 p-1.5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 w-full md:w-auto">
+            <!-- 컨트롤 패널 (파스텔 캡슐 바) -->
+            <div class="flex flex-wrap items-center justify-center gap-2 bg-pink-50/90 dark:bg-purple-950/60 p-2 rounded-[1.5rem] border-2 border-pink-100 dark:border-purple-800/70 w-full md:w-auto">
                 
                 <!-- 주차 이동 버튼 -->
-                <div class="flex items-center bg-white dark:bg-slate-700 rounded-xl shadow-sm border border-slate-200 dark:border-slate-600 p-0.5">
-                    <button id="prev-week-btn" title="지난주" class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <div class="flex items-center bg-white dark:bg-nightCard rounded-2xl shadow-sm border border-pink-200/80 dark:border-purple-700 p-0.5">
+                    <button id="prev-week-btn" title="지난주" class="btn-bouncy p-1.5 hover:bg-pink-50 dark:hover:bg-purple-800 rounded-xl text-pink-500 dark:text-pink-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
-                    <button id="today-btn" class="px-2.5 py-1 text-xs font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 transition">오늘 주</button>
-                    <button id="next-week-btn" title="다음주" class="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-600 rounded-lg text-slate-600 dark:text-slate-300 transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    <button id="today-btn" class="btn-bouncy px-2.5 py-1 text-xs font-bold text-slate-700 dark:text-purple-100 hover:text-pink-500">오늘 주</button>
+                    <button id="next-week-btn" title="다음주" class="btn-bouncy p-1.5 hover:bg-pink-50 dark:hover:bg-purple-800 rounded-xl text-pink-500 dark:text-pink-300">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
 
                 <!-- 날짜 선택 피커 -->
-                <input type="date" id="date-picker" class="bg-white dark:bg-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-600 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 font-medium shadow-sm focus:ring-2 focus:ring-blue-500 outline-none transition cursor-pointer" />
+                <input type="date" id="date-picker" class="bg-white dark:bg-nightCard dark:text-purple-100 border border-pink-200/80 dark:border-purple-700 rounded-2xl px-3 py-1.5 text-xs text-slate-700 font-bold shadow-sm focus:ring-2 focus:ring-pink-300 outline-none transition cursor-pointer" />
                 
                 <!-- 학년 및 반 선택 구체화 버튼 -->
-                <button onclick="openClassModal()" class="bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-600 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-1.5 text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5 shadow-sm transition active:scale-95">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <button onclick="openClassModal()" class="btn-bouncy bg-white dark:bg-nightCard hover:bg-pink-50/60 dark:hover:bg-purple-800/60 border border-pink-200/80 dark:border-purple-700 rounded-2xl px-3 py-1.5 text-xs font-bold text-slate-700 dark:text-purple-100 flex items-center gap-1.5 shadow-sm">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span id="header-class-badge-desktop">1학년 1반</span>
-                    <span class="text-slate-400 dark:text-slate-400 text-[10px]">▼</span>
+                    <span class="text-pink-400 text-[10px]">▼</span>
                 </button>
 
                 <!-- 조회 버튼 -->
-                <button id="search-btn" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition shadow-sm active:scale-95 flex items-center gap-1">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <button id="search-btn" class="btn-bouncy bg-gradient-to-r from-pink-400 to-rose-400 hover:from-pink-500 hover:to-rose-500 text-white px-4 py-1.5 rounded-2xl text-xs font-bold shadow-[0_3px_0_0_#f43f5e] flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                     조회
                 </button>
 
                 <!-- 다크 모드 토글 버튼 (데스크톱) -->
-                <button onclick="toggleDarkMode()" title="다크모드 전환" class="hidden md:flex items-center gap-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 px-2.5 py-1.5 rounded-xl text-xs font-bold text-slate-700 dark:text-amber-300 hover:bg-slate-50 dark:hover:bg-slate-600 transition shadow-sm">
-                    <span class="dark:hidden">🌙 다크</span>
-                    <span class="hidden dark:inline">☀️ 라이트</span>
+                <button onclick="toggleDarkMode()" title="테마 전환" class="btn-bouncy hidden md:flex items-center gap-1 bg-white dark:bg-nightCard border border-pink-200/80 dark:border-purple-700 px-3 py-1.5 rounded-2xl text-xs font-bold text-slate-600 dark:text-amber-300 hover:bg-amber-50 dark:hover:bg-purple-800 shadow-sm">
+                    <span class="dark:hidden">🌙 밤하늘</span>
+                    <span class="hidden dark:inline">☀️ 햇살</span>
                 </button>
 
                 <!-- 학교 공식 홈페이지 링크 -->
-                <a href="https://in-hyoseong.icehs.kr/main.do" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center gap-1 text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 bg-white dark:bg-slate-700 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-600 transition shadow-sm ml-1">
-                    <span>홈페이지</span>
-                    <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <a href="https://in-hyoseong.icehs.kr/main.do" target="_blank" rel="noopener noreferrer" class="btn-bouncy hidden lg:inline-flex items-center gap-1 text-xs font-bold text-sky-600 dark:text-sky-300 hover:text-sky-700 bg-sky-50 dark:bg-sky-950/60 px-3 py-1.5 rounded-2xl border border-sky-200 dark:border-sky-800 shadow-sm">
+                    <span>🏫 홈페이지</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- 카테고리 탭 네비게이션 (화면 길이 최소화 및 한눈에 보기 지원) -->
-    <nav class="bg-white/80 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/80 sticky top-[65px] z-10 backdrop-blur-md transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-1.5 overflow-x-auto custom-scrollbar py-2 text-xs font-bold">
-            <button onclick="switchTab('timetable')" id="tab-btn-timetable" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+    <!-- 카테고리 탭 네비게이션 (동글동글 알약 버튼 메뉴) -->
+    <nav class="bg-white/80 dark:bg-nightCard/80 border-b-2 border-pink-100/80 dark:border-purple-900/60 sticky top-[70px] z-10 backdrop-blur-md transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 overflow-x-auto custom-scrollbar py-2.5 text-xs font-bold">
+            <button onclick="switchTab('timetable')" id="tab-btn-timetable" class="tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0">
                 <span>📅</span> 주간 시간표
             </button>
-            <button onclick="switchTab('meal-schedule')" id="tab-btn-meal-schedule" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
+            <button onclick="switchTab('meal-schedule')" id="tab-btn-meal-schedule" class="tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0">
                 <span>🍱</span> 급식 & 🗓️ 학사일정
             </button>
-            <button onclick="switchTab('notice')" id="tab-btn-notice" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
-                <span>📢</span> 학교 공지사항
+            <button onclick="switchTab('notice')" id="tab-btn-notice" class="tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0">
+                <span>💌</span> 학교 공지사항
             </button>
-            <button onclick="switchTab('memo')" id="tab-btn-memo" class="tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0">
-                <span>📝</span> 스마트 메모장
+            <button onclick="switchTab('memo')" id="tab-btn-memo" class="tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0">
+                <span>🎀</span> 다꾸 메모장
             </button>
-            <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-600 mx-1 shrink-0"></div>
-            <button onclick="switchTab('all')" id="tab-btn-all" class="tab-btn px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 text-slate-500 hover:text-slate-700 dark:text-slate-400">
-                <span>👀</span> 전체 보기
+            <div class="h-4 w-[2px] rounded-full bg-pink-200 dark:bg-purple-700 mx-1 shrink-0"></div>
+            <button onclick="switchTab('all')" id="tab-btn-all" class="tab-btn btn-bouncy px-3.5 py-2 rounded-full flex items-center gap-1.5 shrink-0">
+                <span>🌈</span> 한눈에 다보기
             </button>
         </div>
     </nav>
@@ -154,19 +235,24 @@
     <main class="max-w-7xl mx-auto p-4 sm:p-6 w-full flex-1 space-y-6">
         
         <!-- SECTION 1: 주간 시간표 패널 -->
-        <section id="panel-timetable" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden transition-colors">
+        <section id="panel-timetable" class="tab-panel bg-white/95 dark:bg-nightCard rounded-[2rem] shadow-[0_8px_25px_rgba(251,207,232,0.3)] dark:shadow-none border-2 border-pink-100 dark:border-purple-800/80 overflow-hidden transition-colors">
             <!-- 시간표 상단 헤더 -->
-            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex flex-wrap items-center justify-between gap-3">
+            <div class="px-6 py-4 border-b-2 border-pink-100/80 dark:border-purple-800/60 bg-gradient-to-r from-pink-50/90 via-rose-50/70 to-amber-50/70 dark:from-purple-900/40 dark:to-pink-900/20 flex flex-wrap items-center justify-between gap-3">
                 <div class="flex items-center gap-3">
-                    <span class="text-2xl">📅</span>
+                    <div class="w-10 h-10 rounded-2xl bg-white dark:bg-purple-900/60 border border-pink-200 dark:border-purple-700 flex items-center justify-center text-2xl shadow-sm">
+                        📅
+                    </div>
                     <div>
-                        <h2 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">주간 시간표</h2>
-                        <p id="week-range-text" class="text-xs text-slate-500 dark:text-slate-400 font-medium">월요일 ~ 금요일 시간표 한눈에 보기</p>
+                        <h2 class="font-cute text-xl text-slate-800 dark:text-white flex items-center gap-1.5">
+                            <span>우리 반 주간 시간표</span>
+                            <span class="text-pink-400 animate-twinkle text-sm">✦</span>
+                        </h2>
+                        <p id="week-range-text" class="text-xs text-slate-500 dark:text-purple-300 font-bold">월요일 ~ 금요일 시간표 한눈에 보기</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2">
-                    <span id="timetable-badge" class="bg-indigo-100 dark:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 text-xs px-3 py-1 rounded-full font-bold shadow-sm">1학년 1반</span>
-                    <span class="hidden sm:inline-block text-xs bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-2.5 py-1 rounded-full font-semibold">월·화 7교시 | 수·목·금 6교시</span>
+                    <span id="timetable-badge" class="bg-gradient-to-r from-pink-400 to-rose-400 text-white text-xs px-3.5 py-1 rounded-full font-bold shadow-sm">1학년 1반</span>
+                    <span class="hidden sm:inline-block text-xs bg-white dark:bg-purple-900/60 text-pink-600 dark:text-pink-200 border border-pink-200 dark:border-purple-700 px-3 py-1 rounded-full font-bold">월·화 7교시 🌸 수·목·금 6교시</span>
                 </div>
             </div>
 
@@ -179,17 +265,17 @@
         <!-- SECTION 2: 급식 & 학사일정 패널 -->
         <div id="panel-meal-schedule" class="tab-panel grid grid-cols-1 lg:grid-cols-2 gap-6">
             
-            <!-- 1. 급식 카드 -->
-            <section class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[540px]">
-                <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
-                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                        <span class="text-xl">🍱</span> 오늘의 급식
+            <!-- 1. 오늘의 냠냠 급식 카드 -->
+            <section class="bg-white/95 dark:bg-nightCard rounded-[2rem] shadow-[0_8px_25px_rgba(167,243,208,0.28)] dark:shadow-none border-2 border-emerald-100 dark:border-teal-900/70 overflow-hidden flex flex-col h-[540px]">
+                <div class="px-5 py-4 border-b-2 border-emerald-100/80 dark:border-teal-900/60 bg-gradient-to-r from-emerald-50/90 to-teal-50/60 dark:from-teal-950/50 dark:to-emerald-950/30 flex items-center justify-between">
+                    <h2 class="font-cute text-lg text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="text-2xl">🍱</span> 오늘의 냠냠 급식
                     </h2>
-                    <span id="selected-meal-date" class="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 px-2.5 py-1 rounded-full">--/--</span>
+                    <span id="selected-meal-date" class="text-xs font-bold text-emerald-700 dark:text-emerald-200 bg-white dark:bg-teal-900/70 border border-emerald-200 dark:border-teal-700 px-3 py-1 rounded-full shadow-sm">--/--</span>
                 </div>
 
                 <!-- 주간 요일 탭 선택 -->
-                <div id="meal-day-tabs" class="flex border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/30 dark:bg-slate-800/30 px-2 py-1.5 justify-around text-xs font-bold text-slate-500">
+                <div id="meal-day-tabs" class="flex border-b border-emerald-100 dark:border-teal-900/60 bg-emerald-50/40 dark:bg-teal-950/20 px-3 py-2 justify-around text-xs font-bold text-slate-500">
                     <!-- 요일 버튼들이 동적으로 생성됩니다. -->
                 </div>
 
@@ -200,15 +286,15 @@
             </section>
 
             <!-- 2. 인천효성고 학사일정 -->
-            <section class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[540px]">
-                <div class="px-5 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
-                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                        <span class="text-xl">🗓️</span> 이달의 학사일정
+            <section class="bg-white/95 dark:bg-nightCard rounded-[2rem] shadow-[0_8px_25px_rgba(186,230,253,0.3)] dark:shadow-none border-2 border-sky-100 dark:border-sky-900/70 overflow-hidden flex flex-col h-[540px]">
+                <div class="px-5 py-4 border-b-2 border-sky-100/80 dark:border-sky-900/60 bg-gradient-to-r from-sky-50/90 to-indigo-50/60 dark:from-sky-950/50 dark:to-indigo-950/30 flex items-center justify-between">
+                    <h2 class="font-cute text-lg text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="text-2xl">🗓️</span> 이달의 학사일정
                     </h2>
                     <div class="flex items-center gap-2">
-                        <span id="schedule-month-text" class="text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 px-2.5 py-1 rounded-full">--월</span>
-                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5 bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition">
-                            <span>홈페이지</span>↗
+                        <span id="schedule-month-text" class="text-xs font-bold text-sky-700 dark:text-sky-200 bg-white dark:bg-sky-900/70 border border-sky-200 dark:border-sky-700 px-3 py-1 rounded-full shadow-sm">--월</span>
+                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="btn-bouncy text-[11px] font-bold text-sky-600 dark:text-sky-300 bg-white dark:bg-sky-900/40 px-2.5 py-1 rounded-full border border-sky-200 dark:border-sky-700 shadow-sm">
+                            <span>홈페이지</span> ↗
                         </a>
                     </div>
                 </div>
@@ -222,85 +308,90 @@
         </div>
 
         <!-- SECTION 3: 학교 공식 알림 및 공지사항 패널 -->
-        <section id="panel-notice" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden flex flex-col h-[580px]">
-            <div class="px-5 py-3.5 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex flex-wrap items-center justify-between gap-2">
-                <div class="flex items-center gap-2">
-                    <h2 class="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                        <span class="text-xl">📢</span> 인천효성고 최신 소식 (공지사항 & 가정통신문)
+        <section id="panel-notice" class="tab-panel bg-white/95 dark:bg-nightCard rounded-[2rem] shadow-[0_8px_25px_rgba(253,230,138,0.28)] dark:shadow-none border-2 border-amber-100 dark:border-purple-800/80 overflow-hidden flex flex-col h-[580px]">
+            <div class="px-5 py-4 border-b-2 border-amber-100/80 dark:border-purple-800/60 bg-gradient-to-r from-amber-50/90 via-orange-50/60 to-pink-50/60 dark:from-purple-900/40 dark:to-amber-950/20 flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5 flex-wrap">
+                    <h2 class="font-cute text-lg text-slate-800 dark:text-white flex items-center gap-2">
+                        <span class="text-2xl">💌</span> 인천효성고 소식 우체통
                     </h2>
-                    <span id="notice-status-badge" class="text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                    <span id="notice-status-badge" class="text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 px-2.5 py-1 rounded-full flex items-center gap-1 border border-emerald-200 dark:border-emerald-700">
                         <span id="notice-status-dot" class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span id="notice-status-text">공식 홈페이지 주기적 수집</span>
                     </span>
                 </div>
                 <div class="flex items-center gap-1.5 text-xs font-bold">
-                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline bg-blue-50 dark:bg-blue-900/40 px-2.5 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition flex items-center gap-1">
-                        공지사항 (3202) ↗
+                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="btn-bouncy text-sky-600 dark:text-sky-300 bg-white dark:bg-sky-950/60 px-3 py-1 rounded-full border border-sky-200 dark:border-sky-800 shadow-sm flex items-center gap-1">
+                        공지사항 ↗
                     </a>
-                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3215&m=0201&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="text-emerald-600 dark:text-emerald-400 hover:underline bg-emerald-50 dark:bg-emerald-900/40 px-2.5 py-1 rounded-lg border border-emerald-100 dark:border-emerald-800 transition flex items-center gap-1">
-                        가정통신문 (3215) ↗
+                    <a href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3215&m=0201&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="btn-bouncy text-emerald-600 dark:text-emerald-300 bg-white dark:bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 shadow-sm flex items-center gap-1">
+                        가정통신문 ↗
                     </a>
                 </div>
             </div>
 
             <!-- 검색 및 카테고리 필터 -->
-            <div class="p-3 bg-slate-50/50 dark:bg-slate-800/30 border-b border-slate-100 dark:border-slate-700/60 space-y-2">
+            <div class="p-3.5 bg-amber-50/40 dark:bg-purple-950/30 border-b border-amber-100 dark:border-purple-800/60 space-y-2.5">
                 <div class="relative">
-                    <input type="text" id="notice-search-input" placeholder="인천효성고 공지 및 가정통신문 제목 검색..." class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl pl-8 pr-3 py-1.5 text-xs text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 transition" />
-                    <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <input type="text" id="notice-search-input" placeholder="🔍 찾고 싶은 공지나 가정통신문 제목을 입력해봐!" class="w-full bg-white dark:bg-nightCard border-2 border-amber-200/80 dark:border-purple-700 rounded-full pl-9 pr-4 py-2 text-xs font-bold text-slate-700 dark:text-purple-100 outline-none focus:ring-2 focus:ring-amber-300 transition" />
+                    <svg class="w-4 h-4 text-amber-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                 </div>
 
                 <div id="notice-category-tabs" class="flex items-center justify-between text-[11px] font-bold">
-                    <div class="flex gap-1">
-                        <button onclick="filterNoticeCategory('all')" class="notice-tab-btn active px-2.5 py-1 rounded-lg bg-blue-600 text-white shadow-sm transition">전체 소식</button>
-                        <button onclick="filterNoticeCategory('notice')" class="notice-tab-btn px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition">공지사항 (boardID=3202)</button>
-                        <button onclick="filterNoticeCategory('letter')" class="notice-tab-btn px-2.5 py-1 rounded-lg bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 transition">가정통신문 (boardID=3215)</button>
+                    <div class="flex gap-1.5 flex-wrap">
+                        <button onclick="filterNoticeCategory('all')" class="notice-tab-btn btn-bouncy active px-3 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-white shadow-sm">전체 소식</button>
+                        <button onclick="filterNoticeCategory('notice')" class="notice-tab-btn btn-bouncy px-3 py-1 rounded-full bg-white dark:bg-purple-900/50 text-slate-600 dark:text-purple-200 border border-amber-200/70 dark:border-purple-700">공지사항</button>
+                        <button onclick="filterNoticeCategory('letter')" class="notice-tab-btn btn-bouncy px-3 py-1 rounded-full bg-white dark:bg-purple-900/50 text-slate-600 dark:text-purple-200 border border-amber-200/70 dark:border-purple-700">가정통신문</button>
                     </div>
-                    <span class="hidden sm:inline text-[10px] text-slate-400">클릭 시 해당 원문으로 이동</span>
+                    <span class="hidden sm:inline text-[11px] text-amber-600/80 dark:text-amber-300/80">✨ 클릭하면 원문으로 이동해요</span>
                 </div>
             </div>
 
             <!-- 공지사항 리스트 영역 -->
-            <div id="notice-list-container" class="p-3 flex-1 overflow-y-auto space-y-2 custom-scrollbar">
+            <div id="notice-list-container" class="p-3.5 flex-1 overflow-y-auto space-y-2.5 custom-scrollbar">
                 <!-- Javascript dynamic notices -->
             </div>
         </section>
 
         <!-- SECTION 4: 개인 메모장 및 파일/이미지 첨부 보관함 패널 -->
-        <section id="panel-memo" class="tab-panel bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700/80 overflow-hidden transition-colors">
-            <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/70 dark:bg-slate-800/50 flex items-center justify-between">
+        <section id="panel-memo" class="tab-panel bg-white/95 dark:bg-nightCard rounded-[2rem] shadow-[0_8px_25px_rgba(233,213,255,0.35)] dark:shadow-none border-2 border-purple-100 dark:border-purple-800/80 overflow-hidden transition-colors">
+            <div class="px-6 py-4 border-b-2 border-purple-100/80 dark:border-purple-800/60 bg-gradient-to-r from-purple-50/90 via-pink-50/70 to-amber-50/60 dark:from-purple-900/40 dark:to-pink-900/20 flex items-center justify-between flex-wrap gap-2">
                 <div class="flex items-center gap-3">
-                    <span class="text-2xl">📝</span>
+                    <div class="w-10 h-10 rounded-2xl bg-white dark:bg-purple-900/60 border border-purple-200 dark:border-purple-700 flex items-center justify-center text-2xl shadow-sm">
+                        🎀
+                    </div>
                     <div>
-                        <h2 class="text-lg font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">나의 스마트 메모장 & 파일 보관함</h2>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">수행평가, 필기, 준비물 및 사진·파일 첨부 기능 (로컬 자동 저장)</p>
+                        <h2 class="font-cute text-xl text-slate-800 dark:text-white flex items-center gap-1.5">
+                            <span>나만의 다꾸 스마트 메모장</span>
+                            <span class="text-purple-400 text-sm">🍓</span>
+                        </h2>
+                        <p class="text-xs text-slate-500 dark:text-purple-300 font-bold">수행평가 D-Day, 체크리스트, 사진·파일까지 예쁘게 보관해요!</p>
                     </div>
                 </div>
-                <span class="text-xs bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full font-bold">개인 보관용</span>
+                <span class="text-xs bg-white dark:bg-purple-900/60 text-purple-600 dark:text-purple-200 border border-purple-200 dark:border-purple-700 px-3 py-1 rounded-full font-bold shadow-sm">🔒 내 기기 자동 저장</span>
             </div>
 
             <div class="p-5 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
-                <!-- 메모 작성 폼 (4열) -->
-                <div class="lg:col-span-5 bg-slate-50 dark:bg-slate-800/80 p-4 sm:p-5 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 space-y-3.5">
-                    <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                        <span>✏️</span> 새 메모 및 파일 작성
+                <!-- 메모 작성 폼 (5열 - 모눈종이 다이어리 스타일) -->
+                <div class="lg:col-span-5 memo-grid-bg bg-pink-50/60 dark:bg-purple-950/40 p-4 sm:p-5 rounded-[1.75rem] border-2 border-dashed border-pink-200 dark:border-purple-700 space-y-3.5">
+                    <h3 class="font-cute text-base text-pink-600 dark:text-pink-300 flex items-center gap-1.5">
+                        <span>✏️</span> 새 메모 스티커 붙이기
                     </h3>
 
-                    <input type="text" id="memo-title" placeholder="메모 제목 (예: 수학 수행평가, 준비물)" class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 text-xs font-semibold text-slate-800 dark:text-slate-100 outline-none focus:ring-2 focus:ring-blue-500 transition" />
+                    <input type="text" id="memo-title" placeholder="메모 제목 (예: 수학 수행평가, 체육복 챙기기!)" class="w-full bg-white dark:bg-nightCard border-2 border-pink-200/80 dark:border-purple-700 rounded-2xl px-3.5 py-2 text-xs font-bold text-slate-700 dark:text-purple-100 outline-none focus:ring-2 focus:ring-pink-300 transition" />
 
                     <!-- 카테고리 태그 선택 & 커스텀 태그 추가 -->
                     <div class="space-y-1.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-slate-400 text-[11px] font-bold">태그 선택:</span>
-                            <button type="button" onclick="toggleAddTagInput()" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-0.5">
-                                <span>+ 태그 추가</span>
+                            <span class="text-pink-500 dark:text-pink-300 text-[11px] font-bold">🏷️ 태그 고르기:</span>
+                            <button type="button" onclick="toggleAddTagInput()" class="text-[11px] font-bold text-purple-600 dark:text-purple-300 hover:underline flex items-center gap-0.5 bg-white dark:bg-purple-900/60 px-2 py-0.5 rounded-full border border-purple-200 dark:border-purple-700">
+                                <span>+ 새 태그</span>
                             </button>
                         </div>
 
                         <!-- 태그 추가 입력 폼 (기본 숨김) -->
-                        <div id="add-tag-form" class="hidden flex items-center gap-1.5 bg-white dark:bg-slate-700 p-1.5 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm">
-                            <input type="text" id="new-tag-input" placeholder="새 태그 이름 (예: 동아리)" class="flex-1 bg-transparent px-2 py-1 text-xs text-slate-800 dark:text-slate-100 outline-none" maxlength="10" onkeydown="if(event.key==='Enter'){event.preventDefault();addNewTag();}" />
-                            <button type="button" onclick="addNewTag()" class="bg-blue-600 text-white px-2.5 py-1 rounded-lg text-[11px] font-bold hover:bg-blue-700 transition">추가</button>
+                        <div id="add-tag-form" class="hidden flex items-center gap-1.5 bg-white dark:bg-nightCard p-1.5 rounded-2xl border-2 border-pink-200 dark:border-purple-700 shadow-sm">
+                            <input type="text" id="new-tag-input" placeholder="새 태그 이름 (예: 동아리)" class="flex-1 bg-transparent px-2 py-1 text-xs font-bold text-slate-700 dark:text-purple-100 outline-none" maxlength="10" onkeydown="if(event.key==='Enter'){event.preventDefault();addNewTag();}" />
+                            <button type="button" onclick="addNewTag()" class="bg-pink-400 text-white px-3 py-1 rounded-xl text-[11px] font-bold hover:bg-pink-500 transition">추가</button>
                             <button type="button" onclick="toggleAddTagInput()" class="text-slate-400 hover:text-slate-600 text-xs px-1">✕</button>
                         </div>
 
@@ -310,25 +401,25 @@
                         </div>
                     </div>
 
-                    <!-- 수행평가 마감 기한 설정 (수행평가 태그 선택 시 노출) -->
-                    <div id="due-date-container" class="space-y-1 bg-amber-50 dark:bg-amber-900/30 p-2.5 rounded-xl border border-amber-200/80 dark:border-amber-800/60">
+                    <!-- 수행평가 마감 기한 설정 -->
+                    <div id="due-date-container" class="space-y-1.5 bg-amber-50/90 dark:bg-amber-950/40 p-3 rounded-2xl border-2 border-amber-200/80 dark:border-amber-800/60">
                         <div class="flex items-center justify-between">
-                            <label class="text-xs font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1">
+                            <label class="text-xs font-bold text-amber-700 dark:text-amber-300 flex items-center gap-1">
                                 <span>⏰</span> 제출 / 마감 기한 (D-Day)
                             </label>
-                            <span class="text-[10px] font-semibold text-amber-600 dark:text-amber-400">D-Day 자동 계산</span>
+                            <span class="text-[10px] font-bold text-amber-600 dark:text-amber-400 bg-white dark:bg-amber-900/50 px-2 py-0.5 rounded-full">자동 계산 ✨</span>
                         </div>
-                        <input type="date" id="memo-due-date" class="w-full bg-white dark:bg-slate-700 border border-amber-200 dark:border-slate-600 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-100 font-medium outline-none focus:ring-2 focus:ring-amber-500" />
+                        <input type="date" id="memo-due-date" class="w-full bg-white dark:bg-nightCard border border-amber-200 dark:border-amber-700 rounded-xl px-3 py-1.5 text-xs text-slate-700 dark:text-purple-100 font-bold outline-none focus:ring-2 focus:ring-amber-300" />
                     </div>
 
-                    <textarea id="memo-content" rows="3" placeholder="메모 내용이나 세부 사항을 자유롭게 입력하세요..." class="w-full bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl p-3 text-xs text-slate-800 dark:text-slate-100 outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"></textarea>
+                    <textarea id="memo-content" rows="3" placeholder="잊어버리면 안 되는 내용을 귀엽게 적어두자! 📝" class="w-full bg-white dark:bg-nightCard border-2 border-pink-200/80 dark:border-purple-700 rounded-2xl p-3 text-xs font-medium text-slate-700 dark:text-purple-100 outline-none focus:ring-2 focus:ring-pink-300 transition resize-none"></textarea>
 
                     <!-- 하위 체크리스트 작성 영역 -->
-                    <div class="space-y-2 bg-slate-100/70 dark:bg-slate-700/40 p-2.5 rounded-xl border border-slate-200/60 dark:border-slate-600">
-                        <label class="block text-[11px] font-bold text-slate-600 dark:text-slate-300">☑️ 하위 체크리스트 추가 (선택)</label>
+                    <div class="space-y-2 bg-white/80 dark:bg-nightCard/80 p-3 rounded-2xl border border-purple-200/80 dark:border-purple-700">
+                        <label class="block text-[11px] font-bold text-purple-600 dark:text-purple-300">☑️ 할 일 체크리스트 추가 (선택)</label>
                         <div class="flex items-center gap-1.5">
-                            <input type="text" id="checklist-item-input" placeholder="세부 할 일 (예: 자료 조사, 보고서 작성)" class="flex-1 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg px-2.5 py-1.5 text-xs text-slate-800 dark:text-slate-100 outline-none focus:ring-1 focus:ring-blue-500" onkeydown="if(event.key==='Enter'){event.preventDefault();addTempChecklistItem();}" />
-                            <button type="button" onclick="addTempChecklistItem()" class="bg-indigo-600 text-white px-2.5 py-1.5 rounded-lg text-xs font-bold hover:bg-indigo-700 transition">추가</button>
+                            <input type="text" id="checklist-item-input" placeholder="세부 할 일 (예: 자료 조사하기)" class="flex-1 bg-purple-50/50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-700 rounded-xl px-2.5 py-1.5 text-xs text-slate-700 dark:text-purple-100 outline-none focus:ring-1 focus:ring-purple-400" onkeydown="if(event.key==='Enter'){event.preventDefault();addTempChecklistItem();}" />
+                            <button type="button" onclick="addTempChecklistItem()" class="btn-bouncy bg-purple-400 hover:bg-purple-500 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-sm">추가</button>
                         </div>
                         <div id="temp-checklist-list" class="space-y-1 max-h-28 overflow-y-auto custom-scrollbar">
                             <!-- 선택된 임시 체크리스트 항목들 -->
@@ -337,25 +428,25 @@
 
                     <!-- 파일 / 이미지 첨부 -->
                     <div class="space-y-1.5">
-                        <label class="block text-[11px] font-bold text-slate-500 dark:text-slate-400">📎 이미지 및 파일 첨부 (선택)</label>
-                        <input type="file" id="memo-file" accept="image/*,.pdf,.doc,.docx,.hwp,.txt,.zip" class="block w-full text-xs text-slate-500 dark:text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-blue-50 dark:file:bg-blue-900/50 file:text-blue-700 dark:file:text-blue-300 hover:file:bg-blue-100 transition cursor-pointer" />
+                        <label class="block text-[11px] font-bold text-slate-500 dark:text-purple-300">📎 사진 및 파일 첨부 (선택)</label>
+                        <input type="file" id="memo-file" accept="image/*,.pdf,.doc,.docx,.hwp,.txt,.zip" class="block w-full text-xs text-slate-500 dark:text-purple-300 file:mr-3 file:py-1.5 file:px-3.5 file:rounded-full file:border-0 file:text-xs file:font-bold file:bg-pink-100 dark:file:bg-purple-800 file:text-pink-600 dark:file:text-pink-200 hover:file:bg-pink-200 transition cursor-pointer" />
                     </div>
 
-                    <button onclick="saveMemo()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition active:scale-95 flex items-center justify-center gap-1.5">
-                        <span>💾 메모 저장하기</span>
+                    <button onclick="saveMemo()" class="btn-bouncy w-full bg-gradient-to-r from-pink-400 via-rose-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 text-white font-bold py-2.5 rounded-2xl text-xs shadow-[0_4px_0_0_#e11d48] flex items-center justify-center gap-1.5">
+                        <span>💾 메모 스티커 저장하기!</span>
                     </button>
                 </div>
 
                 <!-- 메모 및 저장된 파일 목록 (7열) -->
                 <div class="lg:col-span-7 flex flex-col space-y-3">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
-                            <span>📚</span> 저장된 메모 목록 (<span id="memo-count">0</span>)
+                        <h3 class="font-cute text-base text-slate-800 dark:text-white flex items-center gap-1.5">
+                            <span>📌</span> 붙여둔 메모 보드 (<span id="memo-count" class="text-pink-500">0</span>)
                         </h3>
-                        <button onclick="clearAllMemos()" class="text-[11px] font-bold text-red-500 hover:text-red-700 hover:underline">전체 삭제</button>
+                        <button onclick="clearAllMemos()" class="text-[11px] font-bold text-rose-400 hover:text-rose-600 bg-rose-50 dark:bg-rose-950/50 px-2.5 py-1 rounded-full border border-rose-200 dark:border-rose-800 transition">전체 비우기 🧹</button>
                     </div>
 
-                    <div id="memo-list-container" class="flex-1 max-h-[380px] overflow-y-auto space-y-3 custom-scrollbar pr-1">
+                    <div id="memo-list-container" class="flex-1 max-h-[410px] overflow-y-auto space-y-3 custom-scrollbar pr-1">
                         <!-- Javascript dynamic memo items -->
                     </div>
                 </div>
@@ -364,55 +455,53 @@
     </main>
 
     <!-- 학년 및 반 선택 구체화 모달 -->
-    <div id="class-modal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-md w-full shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700 transform transition-all animate-in fade-in zoom-in duration-200">
-            <div class="p-5 border-b border-slate-100 dark:border-slate-700/80 flex items-center justify-between bg-slate-50/80 dark:bg-slate-800">
+    <div id="class-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-nightCard rounded-[2rem] max-w-md w-full shadow-2xl overflow-hidden border-2 border-pink-200 dark:border-purple-700 transform transition-all">
+            <div class="p-5 border-b-2 border-pink-100 dark:border-purple-800 flex items-center justify-between bg-gradient-to-r from-pink-50 to-amber-50 dark:from-purple-900/60 dark:to-pink-900/30">
                 <div class="flex items-center gap-2">
-                    <span class="text-xl">🏫</span>
-                    <h3 class="text-base font-bold text-slate-900 dark:text-white">학년 및 반 선택 설정</h3>
+                    <span class="text-2xl">🏫</span>
+                    <h3 class="font-cute text-lg text-slate-800 dark:text-white">우리 학년 · 반 고르기</h3>
                 </div>
-                <button onclick="closeClassModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <button onclick="closeClassModal()" class="text-pink-400 hover:text-pink-600 bg-white dark:bg-purple-900 p-1.5 rounded-full shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
             <div class="p-6 space-y-5">
                 <!-- 1. 학년 선택 -->
                 <div class="space-y-2">
-                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400">1. 학년 선택</label>
-                    <div class="grid grid-cols-3 gap-2" id="modal-grade-buttons">
-                        <button onclick="setModalGrade(1)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">1학년</button>
-                        <button onclick="setModalGrade(2)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">2학년</button>
-                        <button onclick="setModalGrade(3)" class="grade-select-btn py-2.5 rounded-xl font-bold text-xs border border-slate-200 dark:border-slate-700 transition">3학년</button>
+                    <label class="block text-xs font-bold text-pink-500 dark:text-pink-300">1. 몇 학년인가요?</label>
+                    <div class="grid grid-cols-3 gap-2.5" id="modal-grade-buttons">
+                        <!-- 동적 생성 -->
                     </div>
                 </div>
 
                 <!-- 2. 반 선택 (1반~12반 그리드) -->
                 <div class="space-y-2">
-                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400">2. 반 선택</label>
+                    <label class="block text-xs font-bold text-pink-500 dark:text-pink-300">2. 몇 반인가요?</label>
                     <div class="grid grid-cols-4 sm:grid-cols-6 gap-2" id="modal-class-buttons">
                         <!-- 1반 ~ 12반 버튼 동적 생성 -->
                     </div>
                 </div>
 
-                <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-2xl border border-blue-100 dark:border-blue-800 text-[11px] text-blue-800 dark:text-blue-300 flex items-center gap-2">
-                    <span>💡</span>
-                    <span>설정하신 학년과 반 정보는 자동 저장되며 접속 시 계속 유지됩니다.</span>
+                <div class="bg-amber-50 dark:bg-amber-950/40 p-3 rounded-2xl border border-amber-200 dark:border-amber-800 text-[11px] font-bold text-amber-700 dark:text-amber-300 flex items-center gap-2">
+                    <span class="text-base">💡</span>
+                    <span>한 번 설정해두면 다음번에 들어올 때도 자동으로 기억해요!</span>
                 </div>
             </div>
 
-            <div class="p-4 bg-slate-50 dark:bg-slate-800/80 border-t border-slate-100 dark:border-slate-700 flex items-center justify-end gap-2">
-                <button onclick="closeClassModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 transition">취소</button>
-                <button onclick="applyClassSelection()" class="px-5 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-md transition">적용하기</button>
+            <div class="p-4 bg-pink-50/50 dark:bg-purple-950/40 border-t border-pink-100 dark:border-purple-800 flex items-center justify-end gap-2">
+                <button onclick="closeClassModal()" class="btn-bouncy px-4 py-2 rounded-2xl text-xs font-bold text-slate-500 dark:text-purple-200 hover:bg-pink-100/60">취소</button>
+                <button onclick="applyClassSelection()" class="btn-bouncy px-5 py-2 rounded-2xl text-xs font-bold bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-[0_3px_0_0_#f43f5e]">적용하기 ✨</button>
             </div>
         </div>
     </div>
 
     <!-- 이미지 / 첨부파일 모달 -->
-    <div id="file-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeFileModal()">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-2xl w-full shadow-2xl overflow-hidden p-4 relative" onclick="event.stopPropagation()">
-            <button onclick="closeFileModal()" class="absolute top-4 right-4 bg-slate-900/60 text-white p-1.5 rounded-full z-10 hover:bg-slate-900">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div id="file-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4" onclick="closeFileModal()">
+        <div class="bg-white dark:bg-nightCard rounded-[2rem] max-w-2xl w-full shadow-2xl border-2 border-pink-200 dark:border-purple-700 overflow-hidden p-5 relative" onclick="event.stopPropagation()">
+            <button onclick="closeFileModal()" class="absolute top-4 right-4 bg-pink-400 text-white p-1.5 rounded-full z-10 hover:bg-pink-500 shadow-md">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div id="file-modal-content" class="flex flex-col items-center justify-center max-h-[75vh] overflow-y-auto">
                 <!-- Image or File preview dynamically inserted -->
@@ -422,41 +511,41 @@
 
     <!-- 공지사항 상세 모달 -->
     <div id="notice-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-700 transform transition-all animate-in fade-in zoom-in duration-200">
-            <div class="p-5 border-b border-slate-100 dark:border-slate-700 flex items-start justify-between bg-slate-50/80 dark:bg-slate-800">
-                <div class="space-y-1 pr-4">
+        <div class="bg-white dark:bg-nightCard rounded-[2rem] max-w-lg w-full shadow-2xl overflow-hidden border-2 border-amber-200 dark:border-purple-700 transform transition-all">
+            <div class="p-5 border-b-2 border-amber-100 dark:border-purple-800 flex items-start justify-between bg-gradient-to-r from-amber-50 to-pink-50 dark:from-purple-900/60 dark:to-amber-950/30">
+                <div class="space-y-1.5 pr-4">
                     <div class="flex items-center gap-2">
-                        <span id="modal-category-badge" class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">공지사항</span>
-                        <span id="modal-date" class="text-xs text-slate-400 font-medium">-</span>
+                        <span id="modal-category-badge" class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-700">공지사항</span>
+                        <span id="modal-date" class="text-xs text-slate-400 font-bold">-</span>
                     </div>
-                    <h3 id="modal-title" class="text-base font-bold text-slate-900 dark:text-white leading-snug">공지사항</h3>
+                    <h3 id="modal-title" class="font-cute text-lg text-slate-800 dark:text-white leading-snug">공지사항</h3>
                 </div>
-                <button onclick="closeNoticeModal()" class="text-slate-400 hover:text-slate-600 p-1 rounded-lg">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                <button onclick="closeNoticeModal()" class="text-amber-500 hover:text-amber-700 bg-white dark:bg-purple-900 p-1.5 rounded-full shadow-sm">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
             <div class="p-5 space-y-3">
-                <div class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed bg-slate-50/50 dark:bg-slate-700/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700">
-                    <p>이 화면에는 제목과 날짜, 분류를 표시합니다.</p>
-                    <p class="mt-1 text-slate-500 dark:text-slate-400">전체 내용과 첨부파일은 학교 홈페이지 원문에서 확인해 주세요.</p>
+                <div class="text-xs sm:text-sm text-slate-700 dark:text-purple-100 leading-relaxed bg-amber-50/50 dark:bg-purple-950/40 p-4 rounded-2xl border border-amber-200/70 dark:border-purple-800">
+                    <p class="font-bold">💌 이 화면에는 제목과 날짜, 분류를 보여드려요.</p>
+                    <p class="mt-1 text-slate-500 dark:text-purple-300 text-xs">자세한 안내 내용과 첨부파일은 학교 홈페이지 원문에서 확인해 주세요!</p>
                 </div>
             </div>
 
-            <div class="p-4 bg-slate-50 dark:bg-slate-800 border-t border-slate-100 dark:border-slate-700 flex items-center justify-end gap-2">
-                <button onclick="closeNoticeModal()" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 transition">닫기</button>
-                <a id="modal-link-btn" href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl text-xs font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-sm transition flex items-center gap-1.5">
-                    <span>원문 보기</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            <div class="p-4 bg-amber-50/40 dark:bg-purple-950/40 border-t border-amber-100 dark:border-purple-800 flex items-center justify-end gap-2">
+                <button onclick="closeNoticeModal()" class="btn-bouncy px-4 py-2 rounded-2xl text-xs font-bold text-slate-500 dark:text-purple-200 hover:bg-amber-100/60">닫기</button>
+                <a id="modal-link-btn" href="https://in-hyoseong.icehs.kr/boardCnts/list.do?boardID=3202&m=0209&s=in_hyoseong" target="_blank" rel="noopener noreferrer" class="btn-bouncy px-4 py-2 rounded-2xl text-xs font-bold bg-gradient-to-r from-amber-400 to-orange-400 text-white shadow-[0_3px_0_0_#ea580c] flex items-center gap-1.5">
+                    <span>원문 보러가기</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- 푸터 -->
-    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700/80 py-4 text-center text-xs text-slate-400 mt-8">
-        <p>인천효성고등학교 주간 시간표 · 급식 · 학사일정 · 스마트 알리미</p>
-        <p class="mt-1 text-[11px]">인천광역시 계양구 안남로 502 (인천효성고등학교)</p>
+    <footer class="bg-white/80 dark:bg-nightCard/80 border-t-2 border-pink-100 dark:border-purple-900/60 py-5 text-center text-xs text-slate-500 dark:text-purple-300 mt-8 backdrop-blur-sm">
+        <p class="font-cute text-sm text-pink-500 dark:text-pink-300">✨ 인천효성고등학교 주간 시간표 · 급식 · 학사일정 · 스마트 알리미 ✨</p>
+        <p class="mt-1 text-[11px] font-bold text-slate-400 dark:text-purple-400">🏫 인천광역시 계양구 안남로 502 (인천효성고등학교)</p>
     </footer>
 
     <!-- 스크립트 영역 -->
@@ -480,11 +569,11 @@
 
                 if (btn) {
                     if (t === tabName) {
-                        btn.className = "tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 bg-blue-600 text-white shadow-md font-bold";
+                        btn.className = "tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0 bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-[0_3px_0_0_#f43f5e] font-bold";
                     } else if (t === 'all') {
-                        btn.className = "tab-btn px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 text-slate-500 hover:text-slate-700 dark:text-slate-400 font-bold hover:bg-slate-100 dark:hover:bg-slate-700";
+                        btn.className = "tab-btn btn-bouncy px-3.5 py-2 rounded-full flex items-center gap-1.5 shrink-0 bg-amber-50 dark:bg-purple-900/50 text-amber-600 dark:text-amber-300 border border-amber-200 dark:border-purple-700 font-bold hover:bg-amber-100";
                     } else {
-                        btn.className = "tab-btn px-4 py-2 rounded-xl flex items-center gap-1.5 transition shrink-0 bg-slate-100 dark:bg-slate-700/70 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-600 font-bold";
+                        btn.className = "tab-btn btn-bouncy px-4 py-2 rounded-full flex items-center gap-1.5 shrink-0 bg-pink-50/80 dark:bg-purple-900/40 text-slate-600 dark:text-purple-200 border border-pink-200/70 dark:border-purple-700/60 hover:bg-pink-100/80 dark:hover:bg-purple-800/60 font-bold";
                     }
                 }
 
@@ -520,12 +609,12 @@
             const toast = document.getElementById('toast');
             document.getElementById('toast-message').textContent = message;
             document.getElementById('toast-icon').textContent = icon;
-            toast.classList.remove('translate-y-[-100px]', 'opacity-0');
+            toast.classList.remove('translate-y-[-120px]', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
             
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
-                toast.classList.add('translate-y-[-100px]', 'opacity-0');
+                toast.classList.add('translate-y-[-120px]', 'opacity-0');
             }, 2500);
         }
 
@@ -533,7 +622,7 @@
         function toggleDarkMode() {
             const isDark = document.documentElement.classList.toggle('dark');
             localStorage.setItem('hyosung_dark_mode', isDark ? 'dark' : 'light');
-            showToast(isDark ? '다크 모드로 전환되었습니다.' : '라이트 모드로 전환되었습니다.', isDark ? '🌙' : '☀️');
+            showToast(isDark ? '포근한 밤하늘 테마로 바뀌었어요!' : '화사한 햇살 테마로 바뀌었어요!', isDark ? '🌙' : '☀️');
         }
 
         // 저장된 다크 모드 초기화
@@ -582,8 +671,8 @@
             for (let g = 1; g <= 3; g++) {
                 const isSelected = (g === tempSelectedGrade);
                 html += `
-                    <button onclick="setModalGrade(${g})" class="py-2.5 rounded-xl font-extrabold text-xs transition border ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-md' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 hover:bg-slate-200'}">
-                        ${g}학년
+                    <button onclick="setModalGrade(${g})" class="btn-bouncy py-2.5 rounded-2xl font-bold text-xs border-2 ${isSelected ? 'bg-gradient-to-r from-pink-400 to-rose-400 text-white border-pink-400 shadow-[0_3px_0_0_#f43f5e]' : 'bg-pink-50/70 dark:bg-purple-900/50 text-slate-700 dark:text-purple-100 border-pink-200/70 dark:border-purple-700 hover:bg-pink-100'}">
+                        ${g}학년 🌸
                     </button>
                 `;
             }
@@ -596,7 +685,7 @@
             for (let c = 1; c <= 12; c++) {
                 const isSelected = (c === tempSelectedClass);
                 html += `
-                    <button onclick="setModalClass(${c})" class="py-2 rounded-xl font-bold text-xs transition border ${isSelected ? 'bg-blue-600 text-white border-blue-600 shadow-sm' : 'bg-slate-50 dark:bg-slate-700/60 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-600 hover:bg-slate-100'}">
+                    <button onclick="setModalClass(${c})" class="btn-bouncy py-2 rounded-2xl font-bold text-xs border-2 ${isSelected ? 'bg-gradient-to-r from-pink-400 to-rose-400 text-white border-pink-400 shadow-[0_2px_0_0_#f43f5e]' : 'bg-slate-50 dark:bg-purple-900/40 text-slate-700 dark:text-purple-200 border-pink-100 dark:border-purple-700 hover:bg-pink-50'}">
                         ${c}반
                     </button>
                 `;
@@ -614,7 +703,7 @@
 
             updateHeaderClassBadge();
             closeClassModal();
-            showToast(`${userGrade}학년 ${userClass}반으로 변경되었습니다!`, "🏫");
+            showToast(`${userGrade}학년 ${userClass}반으로 설정되었어요!`, "🏫");
 
             fetchAllData();
         }
@@ -631,11 +720,11 @@
 
                 html += `
                     <div class="inline-flex items-center">
-                        <button type="button" onclick="selectMemoTag('${tag}')" class="memo-tag-btn px-2.5 py-1 rounded-lg text-[11px] font-bold transition ${isSelected ? 'bg-blue-600 text-white shadow-sm' : 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600'}">
-                            ${tag}
+                        <button type="button" onclick="selectMemoTag('${tag}')" class="memo-tag-btn btn-bouncy px-3 py-1 rounded-full text-[11px] font-bold ${isSelected ? 'bg-gradient-to-r from-pink-400 to-rose-400 text-white shadow-sm' : 'bg-white dark:bg-nightCard text-pink-600 dark:text-pink-200 border border-pink-200 dark:border-purple-700 hover:bg-pink-100/70'}">
+                            #${tag}
                         </button>
                         ${isCustom ? `
-                            <button type="button" onclick="deleteCustomTag('${tag}')" title="태그 삭제" class="ml-1 text-slate-400 hover:text-red-500 text-[10px] font-bold px-1 transition">✕</button>
+                            <button type="button" onclick="deleteCustomTag('${tag}')" title="태그 삭제" class="ml-1 text-pink-300 hover:text-rose-500 text-[10px] font-bold px-1 transition">✕</button>
                         ` : ''}
                     </div>
                 `;
@@ -647,7 +736,7 @@
             currentMemoTag = tag;
             renderMemoTagButtons();
 
-            // 수행평가 태그이거나 설정된 태그일 때 마감일 입력창 표시 제어
+            // 수행평가 태그일 때 마감일 입력창 표시 제어
             const dueDateContainer = document.getElementById('due-date-container');
             if (dueDateContainer) {
                 if (tag === '수행평가') {
@@ -673,12 +762,12 @@
             const newTag = input.value.trim();
 
             if (!newTag) {
-                showToast("태그 이름을 입력해주세요.", "⚠️");
+                showToast("태그 이름을 입력해주세요!", "⚠️");
                 return;
             }
 
             if (availableMemoTags.includes(newTag)) {
-                showToast("이미 존재하는 태그입니다.", "⚠️");
+                showToast("이미 있는 태그예요!", "⚠️");
                 return;
             }
 
@@ -689,7 +778,7 @@
             input.value = '';
             toggleAddTagInput();
             renderMemoTagButtons();
-            showToast(`'${newTag}' 태그가 추가되었습니다!`, "🏷️");
+            showToast(`'#${newTag}' 태그가 추가되었어요!`, "🏷️");
         }
 
         function deleteCustomTag(tag) {
@@ -700,7 +789,7 @@
                 currentMemoTag = availableMemoTags[0] || '수행평가';
             }
             renderMemoTagButtons();
-            showToast(`'${tag}' 태그가 삭제되었습니다.`, "🗑️");
+            showToast(`'#${tag}' 태그가 삭제되었어요.`, "🗑️");
         }
 
         // 임시 체크리스트 항목 추가/삭제 (메모 작성 폼 내부)
@@ -728,9 +817,9 @@
             let html = '';
             tempChecklist.forEach(item => {
                 html += `
-                    <div class="flex items-center justify-between bg-white dark:bg-slate-700 px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-slate-600 text-xs">
-                        <span class="text-slate-700 dark:text-slate-200 font-medium">☑️ ${item.text}</span>
-                        <button type="button" onclick="removeTempChecklistItem(${item.id})" class="text-slate-400 hover:text-red-500 font-bold px-1">✕</button>
+                    <div class="flex items-center justify-between bg-purple-50/80 dark:bg-purple-900/50 px-3 py-1.5 rounded-xl border border-purple-200/70 dark:border-purple-700 text-xs">
+                        <span class="text-slate-700 dark:text-purple-100 font-bold">🌸 ${item.text}</span>
+                        <button type="button" onclick="removeTempChecklistItem(${item.id})" class="text-purple-400 hover:text-rose-500 font-bold px-1">✕</button>
                     </div>
                 `;
             });
@@ -751,16 +840,16 @@
             if (isNaN(diffDays)) return null;
 
             if (diffDays === 0) {
-                return { text: 'D-Day (오늘 마감)', badgeClass: 'bg-red-500 text-white font-extrabold animate-pulse' };
+                return { text: '🔥 D-Day 오늘 마감!', badgeClass: 'bg-rose-500 text-white font-bold animate-pulse' };
             } else if (diffDays > 0) {
                 return { 
-                    text: `D-${diffDays}`, 
+                    text: `⏰ D-${diffDays}`, 
                     badgeClass: diffDays <= 3 
-                        ? 'bg-amber-500 text-white font-extrabold' 
-                        : 'bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300 font-bold' 
+                        ? 'bg-amber-400 text-white font-bold' 
+                        : 'bg-sky-100 dark:bg-sky-900/60 text-sky-700 dark:text-sky-200 font-bold' 
                 };
             } else {
-                return { text: `D+${Math.abs(diffDays)} (지남)`, badgeClass: 'bg-slate-300 dark:bg-slate-700 text-slate-600 dark:text-slate-400 font-semibold' };
+                return { text: `D+${Math.abs(diffDays)} (지남)`, badgeClass: 'bg-slate-200 dark:bg-purple-900/50 text-slate-500 dark:text-purple-300 font-bold' };
             }
         }
 
@@ -774,7 +863,7 @@
                 }
                 localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
                 renderMemos();
-                showToast(memo.completed ? "완료 처리되었습니다! 🎉" : "완료 상태가 해제되었습니다.", "✅");
+                showToast(memo.completed ? "참 잘했어요! 완료 처리되었어요 🎉" : "완료 상태가 해제되었어요.", "✅");
             }
         }
 
@@ -809,7 +898,7 @@
             const dueDate = dueDateInput ? dueDateInput.value : '';
 
             if (!title && !content && tempChecklist.length === 0) {
-                showToast("제목이나 내용, 또는 체크리스트 항목을 입력해주세요.", "⚠️");
+                showToast("제목이나 내용, 또는 할 일을 입력해주세요!", "⚠️");
                 return;
             }
 
@@ -817,7 +906,7 @@
             if (fileInput.files && fileInput.files[0]) {
                 const file = fileInput.files[0];
                 if (file.size > 5 * 1024 * 1024) { // 5MB 제한
-                    showToast("파일 크기는 최대 5MB까지 첨부 가능합니다.", "⚠️");
+                    showToast("파일 크기는 최대 5MB까지 첨부할 수 있어요!", "⚠️");
                     return;
                 }
 
@@ -836,7 +925,7 @@
             const now = new Date();
             const newMemo = {
                 id: Date.now(),
-                title: title || (currentMemoTag === '수행평가' ? '수행평가 메모' : '제목 없음'),
+                title: title || (currentMemoTag === '수행평가' ? '수행평가 메모' : '새 메모 스티커'),
                 content: content,
                 tag: currentMemoTag,
                 dueDate: dueDate,
@@ -849,9 +938,9 @@
             savedMemos.unshift(newMemo);
             try {
                 localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
-                showToast("메모 및 체크리스트가 저장되었습니다!", "💾");
+                showToast("메모 스티커가 보드에 붙었어요!", "📌");
             } catch (e) {
-                showToast("저장 용량이 부족하여 파일 저장이 제한될 수 있습니다.", "⚠️");
+                showToast("저장 용량이 부족해서 파일 저장이 제한될 수 있어요.", "⚠️");
             }
 
             // 입력 폼 초기화
@@ -870,7 +959,7 @@
             savedMemos = savedMemos.filter(m => m.id !== id);
             localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
             renderMemos();
-            showToast("메모가 삭제되었습니다.", "🗑️");
+            showToast("메모 스티커를 떼어냈어요.", "🗑️");
         }
 
         // 전체 메모 삭제
@@ -879,30 +968,40 @@
             savedMemos = [];
             localStorage.setItem('hyosung_memos', JSON.stringify(savedMemos));
             renderMemos();
-            showToast("모든 메모가 삭제되었습니다.", "🧹");
+            showToast("메모 보드를 깨끗하게 비웠어요!", "🧹");
         }
 
-        // 메모 렌더링
+        // 메모 렌더링 (귀여운 포스트잇 스티커 스타일)
         function renderMemos() {
             const container = document.getElementById('memo-list-container');
             document.getElementById('memo-count').textContent = savedMemos.length;
 
             if (savedMemos.length === 0) {
                 container.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-48 text-slate-400 text-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl">
-                        <span class="text-3xl mb-1">✍️</span>
-                        <p class="text-xs font-bold text-slate-600 dark:text-slate-300">작성된 메모가 없습니다.</p>
-                        <p class="text-[11px] text-slate-400">수행평가와 세부 체크리스트를 기록해보세요!</p>
+                    <div class="flex flex-col items-center justify-center h-52 text-pink-400 text-center border-2 border-dashed border-pink-200 dark:border-purple-700 rounded-[1.75rem] bg-pink-50/30 dark:bg-purple-950/20">
+                        <span class="text-4xl mb-2">🧸</span>
+                        <p class="font-cute text-base text-slate-700 dark:text-purple-100">아직 붙여둔 메모 스티커가 없어요!</p>
+                        <p class="text-xs text-slate-400 dark:text-purple-300 mt-0.5">왼쪽에서 수행평가나 준비물을 귀엽게 적어보세요 ✨</p>
                     </div>
                 `;
                 return;
             }
 
+            const stickerThemes = [
+                'bg-amber-50/70 dark:bg-amber-950/30 border-amber-200/90 dark:border-amber-800/60',
+                'bg-pink-50/70 dark:bg-pink-950/30 border-pink-200/90 dark:border-pink-800/60',
+                'bg-sky-50/70 dark:bg-sky-950/30 border-sky-200/90 dark:border-sky-800/60',
+                'bg-purple-50/70 dark:bg-purple-950/30 border-purple-200/90 dark:border-purple-800/60'
+            ];
+
             let html = '';
-            savedMemos.forEach(memo => {
+            savedMemos.forEach((memo, idx) => {
                 const isImage = memo.file && memo.file.type.startsWith('image/');
                 const dDayInfo = memo.dueDate ? getDDayInfo(memo.dueDate) : null;
                 const isCompleted = !!memo.completed;
+                const cardTheme = isCompleted 
+                    ? 'bg-slate-100/80 dark:bg-purple-950/30 border-slate-200 dark:border-purple-800 opacity-75' 
+                    : stickerThemes[idx % stickerThemes.length];
 
                 // 체크리스트 진행률 계산
                 let checklistHtml = '';
@@ -911,19 +1010,19 @@
                     const percent = Math.round((doneCount / memo.checklist.length) * 100);
 
                     checklistHtml = `
-                        <div class="mt-2.5 pt-2 border-t border-slate-200/60 dark:border-slate-600 space-y-1.5">
-                            <div class="flex items-center justify-between text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                                <span>체크리스트 (${doneCount}/${memo.checklist.length})</span>
+                        <div class="mt-2.5 pt-2.5 border-t border-dashed border-pink-200/80 dark:border-purple-700 space-y-1.5">
+                            <div class="flex items-center justify-between text-[11px] font-bold text-purple-600 dark:text-purple-300">
+                                <span>🎀 체크리스트 (${doneCount}/${memo.checklist.length})</span>
                                 <span>${percent}%</span>
                             </div>
-                            <div class="w-full bg-slate-200 dark:bg-slate-600 h-1.5 rounded-full overflow-hidden">
-                                <div class="bg-emerald-500 h-full transition-all duration-300" style="width: ${percent}%"></div>
+                            <div class="w-full bg-white dark:bg-purple-900 h-2 rounded-full overflow-hidden border border-purple-100 dark:border-purple-700">
+                                <div class="bg-gradient-to-r from-pink-400 to-purple-400 h-full rounded-full transition-all duration-300" style="width: ${percent}%"></div>
                             </div>
                             <div class="space-y-1 pt-1">
                                 ${memo.checklist.map(item => `
-                                    <label class="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700/60 transition">
-                                        <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleChecklistItem(${memo.id}, ${item.id})" class="w-3.5 h-3.5 rounded text-blue-600 focus:ring-blue-500 cursor-pointer" />
-                                        <span class="text-xs ${item.done ? 'line-through text-slate-400 dark:text-slate-500' : 'text-slate-700 dark:text-slate-200'}">${item.text}</span>
+                                    <label class="flex items-center gap-2 cursor-pointer p-1 rounded-xl hover:bg-white/60 dark:hover:bg-purple-900/40 transition">
+                                        <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleChecklistItem(${memo.id}, ${item.id})" class="w-3.5 h-3.5 rounded-full accent-pink-400 cursor-pointer" />
+                                        <span class="text-xs font-medium ${item.done ? 'line-through text-slate-400 dark:text-purple-400' : 'text-slate-700 dark:text-purple-100'}">${item.text}</span>
                                     </label>
                                 `).join('')}
                             </div>
@@ -932,46 +1031,47 @@
                 }
 
                 html += `
-                    <div class="p-3.5 rounded-2xl border ${isCompleted ? 'bg-slate-100/80 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 opacity-80' : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200/80 dark:border-slate-600'} space-y-2 relative group transition hover:shadow-sm">
+                    <div class="p-4 rounded-[1.5rem] border-2 ${cardTheme} space-y-2 relative group transition hover:-translate-y-0.5 hover:shadow-md">
                         
-                        <!-- 상단 바: 체크박스, 태그, D-Day, 삭제버튼 -->
+                        <!-- 상단 바: 핀 아이콘, 완료버튼, 태그, D-Day, 삭제버튼 -->
                         <div class="flex items-center justify-between gap-2">
-                            <div class="flex items-center gap-2 flex-wrap">
-                                <button onclick="toggleMemoComplete(${memo.id})" class="flex items-center gap-1.5 px-2 py-0.5 rounded-lg text-[11px] font-bold transition ${isCompleted ? 'bg-emerald-100 dark:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300' : 'bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 text-slate-600 dark:text-slate-300 hover:bg-slate-100'}">
-                                    <span>${isCompleted ? '✅ 완료됨' : '⬜ 완료하기'}</span>
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="text-sm">📌</span>
+                                <button onclick="toggleMemoComplete(${memo.id})" class="btn-bouncy flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${isCompleted ? 'bg-emerald-400 text-white' : 'bg-white dark:bg-nightCard border border-pink-200 dark:border-purple-700 text-slate-600 dark:text-purple-200'}">
+                                    <span>${isCompleted ? '💖 완료됨' : '🤍 완료하기'}</span>
                                 </button>
-                                <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300">${memo.tag}</span>
-                                ${dDayInfo ? `<span class="text-[10px] px-2 py-0.5 rounded-md ${dDayInfo.badgeClass}">${dDayInfo.text}</span>` : ''}
+                                <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white dark:bg-nightCard text-pink-500 dark:text-pink-300 border border-pink-200/80 dark:border-purple-700">#${memo.tag}</span>
+                                ${dDayInfo ? `<span class="text-[10px] px-2.5 py-0.5 rounded-full ${dDayInfo.badgeClass}">${dDayInfo.text}</span>` : ''}
                             </div>
                             <div class="flex items-center gap-1">
-                                <span class="text-[10px] text-slate-400">${memo.date}</span>
-                                <button onclick="deleteMemo(${memo.id})" class="text-slate-400 hover:text-red-500 p-1 rounded-lg transition" title="메모 삭제">
-                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                                <span class="text-[10px] font-bold text-slate-400 dark:text-purple-300">${memo.date}</span>
+                                <button onclick="deleteMemo(${memo.id})" class="text-slate-400 hover:text-rose-500 p-1 rounded-full hover:bg-white/70 transition" title="메모 삭제">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
                                 </button>
                             </div>
                         </div>
 
                         <!-- 제목 및 마감 기한 표시 -->
                         <div>
-                            <h4 class="text-xs font-extrabold text-slate-800 dark:text-slate-100 leading-snug ${isCompleted ? 'line-through text-slate-400 dark:text-slate-500' : ''}">${memo.title}</h4>
-                            ${memo.dueDate ? `<p class="text-[10px] text-amber-600 dark:text-amber-400 font-bold mt-0.5">📅 제출기한: ${memo.dueDate}</p>` : ''}
+                            <h4 class="font-cute text-sm text-slate-800 dark:text-white leading-snug ${isCompleted ? 'line-through text-slate-400 dark:text-purple-400' : ''}">${memo.title}</h4>
+                            ${memo.dueDate ? `<p class="text-[11px] text-amber-600 dark:text-amber-300 font-bold mt-0.5">📅 제출기한: ${memo.dueDate}</p>` : ''}
                         </div>
 
-                        ${memo.content ? `<p class="text-xs text-slate-600 dark:text-slate-300 whitespace-pre-line leading-relaxed ${isCompleted ? 'line-through text-slate-400' : ''}">${memo.content}</p>` : ''}
+                        ${memo.content ? `<p class="text-xs text-slate-600 dark:text-purple-100 whitespace-pre-line leading-relaxed ${isCompleted ? 'line-through text-slate-400' : ''}">${memo.content}</p>` : ''}
 
                         <!-- 체크리스트 렌더링 -->
                         ${checklistHtml}
 
                         <!-- 첨부파일 및 이미지 미리보기 -->
                         ${memo.file ? `
-                            <div class="mt-2 pt-2 border-t border-slate-200/60 dark:border-slate-600 flex items-center justify-between gap-2 text-xs">
+                            <div class="mt-2 pt-2 border-t border-dashed border-pink-200/80 dark:border-purple-700 flex items-center justify-between gap-2 text-xs">
                                 <div class="flex items-center gap-2 truncate">
                                     <span>${isImage ? '🖼️' : '📎'}</span>
-                                    <span class="font-bold text-slate-700 dark:text-slate-200 truncate">${memo.file.name}</span>
+                                    <span class="font-bold text-slate-700 dark:text-purple-100 truncate">${memo.file.name}</span>
                                     <span class="text-[10px] text-slate-400">(${memo.file.size})</span>
                                 </div>
-                                <button type="button" onclick="openFileModal(${memo.id})" class="text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline shrink-0">
-                                    ${isImage ? '미리보기' : '다운로드'}
+                                <button type="button" onclick="openFileModal(${memo.id})" class="text-[11px] font-bold text-pink-500 dark:text-pink-300 hover:underline shrink-0 bg-white dark:bg-nightCard px-2.5 py-0.5 rounded-full border border-pink-200 dark:border-purple-700">
+                                    ${isImage ? '크게 보기' : '다운로드'}
                                 </button>
                             </div>
                         ` : ''}
@@ -990,16 +1090,16 @@
 
             if (isImage) {
                 container.innerHTML = `
-                    <img src="${memo.file.data}" alt="${memo.file.name}" class="max-w-full max-h-[65vh] object-contain rounded-2xl shadow-md mb-3" />
-                    <a href="${memo.file.data}" download="${memo.file.name}" class="px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-xl hover:bg-blue-700 transition">다운로드 (${memo.file.size})</a>
+                    <img src="${memo.file.data}" alt="${memo.file.name}" class="max-w-full max-h-[65vh] object-contain rounded-2xl shadow-md mb-4 border-2 border-pink-100" />
+                    <a href="${memo.file.data}" download="${memo.file.name}" class="btn-bouncy px-5 py-2 bg-gradient-to-r from-pink-400 to-rose-400 text-white text-xs font-bold rounded-full shadow-md">다운로드 (${memo.file.size})</a>
                 `;
             } else {
                 container.innerHTML = `
                     <div class="p-8 text-center space-y-4">
-                        <span class="text-5xl">📄</span>
-                        <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100">${memo.file.name}</h4>
-                        <p class="text-xs text-slate-400">파일 크기: ${memo.file.size}</p>
-                        <a href="${memo.file.data}" download="${memo.file.name}" class="inline-block px-5 py-2.5 bg-blue-600 text-white text-xs font-bold rounded-xl hover:bg-blue-700 transition">파일 다운로드</a>
+                        <span class="text-5xl block">📄</span>
+                        <h4 class="font-cute text-base text-slate-800 dark:text-white">${memo.file.name}</h4>
+                        <p class="text-xs text-slate-400 font-bold">파일 크기: ${memo.file.size}</p>
+                        <a href="${memo.file.data}" download="${memo.file.name}" class="btn-bouncy inline-block px-5 py-2.5 bg-gradient-to-r from-pink-400 to-rose-400 text-white text-xs font-bold rounded-full shadow-md">파일 다운로드</a>
                     </div>
                 `;
             }
@@ -1014,31 +1114,31 @@
         const NOTICES_URL = './notices.json';
         const NOTICE_HEADER_STATES = {
             loading: {
-                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300',
+                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700',
                 dot: 'bg-emerald-500 animate-pulse',
                 label: '공지 불러오는 중'
             },
             ok: {
-                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300',
+                badge: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700',
                 dot: 'bg-emerald-500',
-                label: '정기 수집 완료'
+                label: '정기 수집 완료 ✨'
             },
             'collection-error': {
-                badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300',
+                badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300 border border-amber-200 dark:border-amber-700',
                 dot: 'bg-amber-500',
                 label: '수집 오류'
             },
             'fetch-error': {
-                badge: 'bg-red-100 text-red-700 dark:bg-red-900/60 dark:text-red-300',
-                dot: 'bg-red-500',
+                badge: 'bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300 border border-rose-200 dark:border-rose-700',
+                dot: 'bg-rose-500',
                 label: '불러오기 실패'
             }
         };
         const NOTICE_STATUS_TONES = {
-            loading: 'border-slate-200 bg-slate-50 text-slate-500 dark:border-slate-600 dark:bg-slate-700/40 dark:text-slate-300',
-            success: 'border-emerald-100 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300',
-            warning: 'border-amber-200 bg-amber-50 text-amber-800 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-300',
-            error: 'border-red-200 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-900/30 dark:text-red-300'
+            loading: 'border-amber-200 bg-white text-slate-500 dark:border-purple-700 dark:bg-nightCard dark:text-purple-200',
+            success: 'border-emerald-200 bg-emerald-50/80 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/40 dark:text-emerald-300',
+            warning: 'border-amber-200 bg-amber-50/80 text-amber-800 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-300',
+            error: 'border-rose-200 bg-rose-50/80 text-rose-700 dark:border-rose-800 dark:bg-rose-950/40 dark:text-rose-300'
         };
 
         let hyoseongNotices = [];
@@ -1055,7 +1155,7 @@
             if (!badge || !dot || !text) return;
 
             const config = NOTICE_HEADER_STATES[state] || NOTICE_HEADER_STATES.loading;
-            badge.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 ' + config.badge;
+            badge.className = 'text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 ' + config.badge;
             dot.className = 'w-1.5 h-1.5 rounded-full ' + config.dot;
             text.textContent = config.label;
         }
@@ -1063,13 +1163,13 @@
         function getNoticeCategoryMeta(category) {
             if (category === 'letter') {
                 return {
-                    label: '가정통신문',
-                    badgeClass: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300'
+                    label: '🌷 가정통신문',
+                    badgeClass: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700'
                 };
             }
             return {
-                label: '공지사항',
-                badgeClass: 'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300'
+                label: '📢 공지사항',
+                badgeClass: 'bg-sky-100 text-sky-700 dark:bg-sky-900/60 dark:text-sky-300 border border-sky-200 dark:border-sky-700'
             };
         }
 
@@ -1170,7 +1270,7 @@
 
         function appendNoticeStatus(container, message, tone) {
             const status = document.createElement('div');
-            status.className = 'px-3 py-2 rounded-xl border text-[11px] font-semibold leading-relaxed ' +
+            status.className = 'px-3.5 py-2 rounded-2xl border text-[11px] font-bold leading-relaxed ' +
                 (NOTICE_STATUS_TONES[tone] || NOTICE_STATUS_TONES.loading);
             status.textContent = message;
             container.appendChild(status);
@@ -1178,21 +1278,21 @@
 
         function appendNoticeMessage(container, message) {
             const empty = document.createElement('div');
-            empty.className = 'p-6 text-center text-xs text-slate-400';
+            empty.className = 'p-6 text-center text-xs font-bold text-slate-400 dark:text-purple-300';
             empty.textContent = message;
             container.appendChild(empty);
         }
 
         function appendNoticeLoading(container) {
             const loading = document.createElement('div');
-            loading.className = 'flex items-center justify-center gap-2 p-6 text-xs font-semibold text-slate-400';
+            loading.className = 'flex items-center justify-center gap-2 p-6 text-xs font-bold text-pink-400';
 
             const spinner = document.createElement('span');
-            spinner.className = 'w-3.5 h-3.5 rounded-full border-2 border-slate-200 border-t-blue-500 animate-spin';
+            spinner.className = 'w-4 h-4 rounded-full border-2 border-pink-200 border-t-pink-500 animate-spin';
             spinner.setAttribute('aria-hidden', 'true');
 
             const label = document.createElement('span');
-            label.textContent = '공지사항을 불러오는 중입니다...';
+            label.textContent = '학교 소식을 불러오는 중이에요...';
 
             loading.appendChild(spinner);
             loading.appendChild(label);
@@ -1203,7 +1303,7 @@
             const categoryMeta = getNoticeCategoryMeta(item.category);
 
             const row = document.createElement('div');
-            row.className = 'group p-3 rounded-2xl bg-slate-50 dark:bg-slate-700/50 hover:bg-blue-50/70 dark:hover:bg-slate-700 border border-slate-100 dark:border-slate-600/80 cursor-pointer transition flex items-center justify-between gap-2';
+            row.className = 'group p-3.5 rounded-2xl bg-amber-50/40 dark:bg-purple-950/30 hover:bg-amber-100/60 dark:hover:bg-purple-900/50 border-2 border-amber-100/80 dark:border-purple-800/70 cursor-pointer transition hover:-translate-y-0.5 flex items-center justify-between gap-2';
             row.addEventListener('click', () => openNoticeModal(item.id));
 
             const info = document.createElement('div');
@@ -1213,15 +1313,15 @@
             metaRow.className = 'flex items-center gap-1.5 flex-wrap';
 
             const badge = document.createElement('span');
-            badge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-md ' + categoryMeta.badgeClass;
+            badge.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full ' + categoryMeta.badgeClass;
             badge.textContent = categoryMeta.label;
 
             const date = document.createElement('span');
-            date.className = 'text-[11px] text-slate-400 font-medium';
+            date.className = 'text-[11px] text-slate-400 dark:text-purple-300 font-bold';
             date.textContent = formatNoticeDate(item.date);
 
             const title = document.createElement('h3');
-            title.className = 'text-xs font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 transition truncate';
+            title.className = 'text-xs font-bold text-slate-800 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-300 transition truncate';
             title.textContent = item.title;
 
             metaRow.appendChild(badge);
@@ -1233,7 +1333,7 @@
             link.href = item.url;
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
-            link.className = 'text-[11px] font-bold text-blue-600 dark:text-blue-400 hover:underline bg-blue-50 dark:bg-blue-900/40 px-2 py-1 rounded-lg border border-blue-100 dark:border-blue-800 transition shrink-0 flex items-center gap-0.5';
+            link.className = 'btn-bouncy text-[11px] font-bold text-amber-600 dark:text-amber-300 bg-white dark:bg-nightCard px-2.5 py-1 rounded-full border border-amber-200 dark:border-purple-700 shadow-sm shrink-0 flex items-center gap-0.5';
             link.textContent = '원문 ↗';
             link.addEventListener('click', (event) => event.stopPropagation());
 
@@ -1255,35 +1355,35 @@
             }
 
             if (noticeCollectionState === 'fetch-error') {
-                appendNoticeStatus(container, '공지사항 파일을 불러오지 못했습니다. 잠시 후 다시 시도해 주세요.', 'error');
-                appendNoticeMessage(container, '파일을 읽지 못해 목록을 표시할 수 없습니다.');
+                appendNoticeStatus(container, '공지사항 파일을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.', 'error');
+                appendNoticeMessage(container, '파일을 읽지 못해 목록을 표시할 수 없어요.');
                 return;
             }
 
             if (noticeCollectionState === 'collection-error' && !hasNotices) {
-                let message = '공지사항을 수집하지 못했습니다.';
+                let message = '공지사항을 수집하지 못했어요.';
                 if (noticeCollectionError) message += ' ' + noticeCollectionError;
                 appendNoticeStatus(container, message, 'error');
-                appendNoticeMessage(container, '학교 홈페이지에서 직접 확인해 주세요.');
+                appendNoticeMessage(container, '학교 홈페이지에서 직접 확인해 주세요!');
                 return;
             }
 
             if (noticeCollectionState === 'collection-error') {
-                let warning = '공지 수집에 실패해 이전 목록을 표시합니다.';
+                let warning = '공지 수집에 실패해 이전 목록을 표시해요.';
                 if (noticeLastSuccessAt) {
                     warning += ' 마지막 성공: ' + formatNoticeTimestamp(noticeLastSuccessAt);
                 } else {
-                    warning += ' 마지막 성공 시각을 확인할 수 없습니다.';
+                    warning += ' 마지막 성공 시각을 확인할 수 없어요.';
                 }
                 if (noticeCollectionError) warning += ' (' + noticeCollectionError + ')';
                 appendNoticeStatus(container, warning, 'warning');
             } else if (noticeCollectionState === 'ok') {
                 const timestamp = formatNoticeTimestamp(noticeLastSuccessAt);
-                appendNoticeStatus(container, timestamp ? '수집 완료: ' + timestamp : '공지 수집을 완료했습니다.', 'success');
+                appendNoticeStatus(container, timestamp ? '✨ 최근 수집: ' + timestamp : '✨ 공지 수집을 완료했어요!', 'success');
             }
 
             if (!hasNotices) {
-                appendNoticeMessage(container, '수집된 공지사항이 없습니다.');
+                appendNoticeMessage(container, '수집된 공지사항이 없어요.');
                 return;
             }
 
@@ -1295,7 +1395,7 @@
             });
 
             if (filtered.length === 0) {
-                appendNoticeMessage(container, normalizedQuery ? '검색 결과가 없습니다.' : '해당 분류에 등록된 공지가 없습니다.');
+                appendNoticeMessage(container, normalizedQuery ? '검색 결과가 없어요 🥲' : '해당 분류에 등록된 공지가 없어요.');
                 return;
             }
 
@@ -1308,10 +1408,10 @@
             // 탭 스타일 변경
             const btns = document.querySelectorAll('.notice-tab-btn');
             btns.forEach(btn => {
-                btn.className = "notice-tab-btn px-2.5 py-1 rounded-lg transition " + 
+                btn.className = "notice-tab-btn btn-bouncy px-3 py-1 rounded-full " + 
                     (btn.getAttribute('onclick').includes(`'${cat}'`)
-                        ? "bg-blue-600 text-white shadow-sm font-bold" 
-                        : "bg-slate-200/70 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-bold");
+                        ? "bg-gradient-to-r from-amber-400 to-orange-400 text-white shadow-sm font-bold" 
+                        : "bg-white dark:bg-purple-900/50 text-slate-600 dark:text-purple-200 border border-amber-200/70 dark:border-purple-700 font-bold");
             });
 
             renderNotices();
@@ -1323,7 +1423,7 @@
 
             const categoryMeta = getNoticeCategoryMeta(item.category);
             const categoryBadge = document.getElementById('modal-category-badge');
-            categoryBadge.className = 'text-[10px] font-bold px-2 py-0.5 rounded-full ' + categoryMeta.badgeClass;
+            categoryBadge.className = 'text-[10px] font-bold px-2.5 py-0.5 rounded-full ' + categoryMeta.badgeClass;
             categoryBadge.textContent = categoryMeta.label;
 
             document.getElementById('modal-title').textContent = item.title;
@@ -1343,21 +1443,22 @@
         let weeklyMealsMap = {};
         let selectedMealDayIdx = 0;
 
+        // 마카롱 파스텔 컬러 팔레트 (과목별 자동 배정)
         const colorPalette = [
-            'bg-red-50 dark:bg-red-950/40 text-red-700 dark:text-red-300 border-red-200 dark:border-red-900',
-            'bg-orange-50 dark:bg-orange-950/40 text-orange-700 dark:text-orange-300 border-orange-200 dark:border-orange-900',
-            'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-900',
-            'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900',
-            'bg-teal-50 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 border-teal-200 dark:border-teal-900',
-            'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-900',
-            'bg-blue-50 dark:bg-blue-950/40 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-900',
-            'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-900',
-            'bg-purple-50 dark:bg-purple-950/40 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-900',
-            'bg-pink-50 dark:bg-pink-950/40 text-pink-700 dark:text-pink-300 border-pink-200 dark:border-pink-900'
+            'bg-rose-50/90 dark:bg-rose-950/50 text-rose-700 dark:text-rose-200 border-rose-200 dark:border-rose-800',
+            'bg-orange-50/90 dark:bg-orange-950/50 text-orange-700 dark:text-orange-200 border-orange-200 dark:border-orange-800',
+            'bg-amber-50/90 dark:bg-amber-950/50 text-amber-700 dark:text-amber-200 border-amber-200 dark:border-amber-800',
+            'bg-emerald-50/90 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-200 border-emerald-200 dark:border-emerald-800',
+            'bg-teal-50/90 dark:bg-teal-950/50 text-teal-700 dark:text-teal-200 border-teal-200 dark:border-teal-800',
+            'bg-sky-50/90 dark:bg-sky-950/50 text-sky-700 dark:text-sky-200 border-sky-200 dark:border-sky-800',
+            'bg-indigo-50/90 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-200 border-indigo-200 dark:border-indigo-800',
+            'bg-purple-50/90 dark:bg-purple-950/50 text-purple-700 dark:text-purple-200 border-purple-200 dark:border-purple-800',
+            'bg-pink-50/90 dark:bg-pink-950/50 text-pink-700 dark:text-pink-200 border-pink-200 dark:border-pink-800',
+            'bg-fuchsia-50/90 dark:bg-fuchsia-950/50 text-fuchsia-700 dark:text-fuchsia-200 border-fuchsia-200 dark:border-fuchsia-800'
         ];
 
         function getSubjectColor(subject) {
-            if (!subject || subject === '수업 없음') return 'bg-slate-50 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700';
+            if (!subject || subject === '수업 없음') return 'bg-slate-50/80 dark:bg-purple-950/30 text-slate-400 dark:text-purple-400 border-slate-200/80 dark:border-purple-800';
             let hash = 0;
             for (let i = 0; i < subject.length; i++) hash = subject.charCodeAt(i) + ((hash << 5) - hash);
             return colorPalette[Math.abs(hash) % colorPalette.length];
@@ -1391,22 +1492,22 @@
             return week;
         }
 
-        function getLoadingHtml(message = "데이터를 불러오는 중입니다...") {
+        function getLoadingHtml(message = "데이터를 불러오는 중이에요...") {
             return `
-                <div class="flex flex-col items-center justify-center h-48 text-slate-400">
-                    <svg class="w-8 h-8 mb-3 text-blue-500 spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <div class="flex flex-col items-center justify-center h-48 text-pink-400">
+                    <svg class="w-9 h-9 mb-3 text-pink-400 spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    <p class="font-medium text-xs dark:text-slate-300">${message}</p>
+                    <p class="font-bold text-xs dark:text-pink-200">${message}</p>
                 </div>
             `;
         }
 
         async function initSchoolCode() {
-            document.getElementById('weekly-timetable-container').innerHTML = getLoadingHtml("인천효성고등학교 데이터 조회 중...");
-            document.getElementById('meal-content').innerHTML = getLoadingHtml();
-            document.getElementById('schedule-content').innerHTML = getLoadingHtml();
+            document.getElementById('weekly-timetable-container').innerHTML = getLoadingHtml("인천효성고등학교 시간표 가져오는 중... ✨");
+            document.getElementById('meal-content').innerHTML = getLoadingHtml("맛있는 급식 메뉴 확인 중... 🍱");
+            document.getElementById('schedule-content').innerHTML = getLoadingHtml("학사일정 불러오는 중... 🗓️");
 
             try {
                 const url = `https://open.neis.go.kr/hub/schoolInfo?KEY=${API_KEY}&Type=json&pIndex=1&pSize=1&SCHUL_NM=${encodeURIComponent(SCHOOL_NAME)}`;
@@ -1418,15 +1519,15 @@
                     SCHOOL_CODE = data.schoolInfo[1].row[0].SD_SCHUL_CODE;
                     fetchAllData();
                 } else {
-                    showError("학교 정보를 찾을 수 없습니다.");
+                    showError("학교 정보를 찾을 수 없어요 🥲");
                 }
             } catch (e) {
-                showError("학교 정보를 불러오는데 실패했습니다.");
+                showError("학교 정보를 불러오는데 실패했어요.");
             }
         }
 
         function showError(msg) {
-            const html = `<div class="p-8 text-center text-red-500 font-bold text-xs">${msg}</div>`;
+            const html = `<div class="p-8 text-center text-rose-500 font-bold text-xs">${msg}</div>`;
             document.getElementById('weekly-timetable-container').innerHTML = html;
             document.getElementById('meal-content').innerHTML = html;
             document.getElementById('schedule-content').innerHTML = html;
@@ -1469,7 +1570,7 @@
             const container = document.getElementById('weekly-timetable-container');
             const todayYMD = formatDateToYMD(new Date());
 
-            let html = '<div class="grid grid-cols-1 md:grid-cols-5 gap-3 sm:gap-4 min-w-[700px] md:min-w-0">';
+            let html = '<div class="grid grid-cols-1 md:grid-cols-5 gap-3.5 sm:gap-4 min-w-[700px] md:min-w-0">';
 
             weeklyResults.forEach((dayData, idx) => {
                 const isToday = (dayData.ymd === todayYMD);
@@ -1482,10 +1583,12 @@
                 });
 
                 html += `
-                    <div class="flex flex-col rounded-2xl border ${isToday ? 'border-blue-500 ring-2 ring-blue-500/20 bg-blue-50/20 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800'} overflow-hidden">
-                        <div class="p-3 text-center border-b ${isToday ? 'bg-blue-600 text-white' : 'bg-slate-100 dark:bg-slate-700/60 text-slate-800 dark:text-slate-200'}">
-                            <span class="font-extrabold text-sm sm:text-base">${dayNames[idx]}</span>
-                            <span class="text-[11px] block opacity-80 font-medium">${dayObj.getMonth()+1}/${dayObj.getDate()}</span>
+                    <div class="flex flex-col rounded-[1.75rem] border-2 ${isToday ? 'border-pink-400 ring-4 ring-pink-200/50 dark:ring-pink-900/40 bg-pink-50/30 dark:bg-pink-950/20 shadow-md' : 'border-pink-100 dark:border-purple-800 bg-white dark:bg-nightCard'} overflow-hidden transition">
+                        <div class="p-3 text-center border-b-2 ${isToday ? 'bg-gradient-to-r from-pink-400 to-rose-400 text-white border-pink-400' : 'bg-pink-50/80 dark:bg-purple-900/50 text-slate-700 dark:text-purple-100 border-pink-100 dark:border-purple-800'}">
+                            <span class="font-cute text-base sm:text-lg flex items-center justify-center gap-1">
+                                ${isToday ? '👑' : ''} ${dayNames[idx]}
+                            </span>
+                            <span class="text-[11px] block opacity-90 font-bold">${dayObj.getMonth()+1}월 ${dayObj.getDate()}일</span>
                         </div>
                         <div class="p-2.5 space-y-2 flex-1">
                 `;
@@ -1495,8 +1598,8 @@
                     const colorClass = getSubjectColor(subject);
 
                     html += `
-                        <div class="flex items-center p-2 rounded-xl border text-xs ${colorClass}">
-                            <span class="w-5 text-center font-black text-slate-400 mr-1 text-[11px]">${perio}</span>
+                        <div class="flex items-center p-2 rounded-2xl border-2 text-xs ${colorClass} transition hover:scale-[1.02]">
+                            <span class="w-5 h-5 rounded-full bg-white/80 dark:bg-black/20 flex items-center justify-center font-bold mr-2 text-[11px] shrink-0 shadow-xs">${perio}</span>
                             <span class="font-bold truncate flex-1">${subject}</span>
                         </div>
                     `;
@@ -1538,8 +1641,8 @@
             dayLabels.forEach((label, idx) => {
                 const isSelected = (idx === selectedMealDayIdx);
                 html += `
-                    <button onclick="selectMealDay(${idx})" class="px-3 py-1.5 rounded-xl font-bold transition ${isSelected ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200/60'}">
-                        ${label}
+                    <button onclick="selectMealDay(${idx})" class="btn-bouncy px-3.5 py-1.5 rounded-full font-bold ${isSelected ? 'bg-gradient-to-r from-emerald-400 to-teal-400 text-white shadow-[0_2px_0_0_#0d9488]' : 'bg-white dark:bg-nightCard text-slate-600 dark:text-purple-200 border border-emerald-200/70 dark:border-teal-800 hover:bg-emerald-50'}">
+                        ${label}요일
                     </button>
                 `;
             });
@@ -1561,21 +1664,34 @@
             document.getElementById('selected-meal-date').textContent = `${dayObj.getMonth()+1}월 ${dayObj.getDate()}일`;
 
             if (!meals || meals.length === 0) {
-                mealContainer.innerHTML = `<div class="p-8 text-center text-slate-400 font-bold text-xs">급식 정보가 없습니다. (휴일)</div>`;
+                mealContainer.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-48 text-emerald-500 text-center border-2 border-dashed border-emerald-200 dark:border-teal-800 rounded-[1.75rem] bg-emerald-50/30 dark:bg-teal-950/20">
+                        <span class="text-4xl mb-2">🍽️</span>
+                        <p class="font-cute text-base text-slate-700 dark:text-purple-100">오늘은 급식이 없는 날이에요!</p>
+                        <p class="text-xs text-slate-400 dark:text-purple-300 mt-0.5">(주말 또는 휴일)</p>
+                    </div>
+                `;
                 return;
             }
 
-            let html = '<div class="space-y-3">';
+            let html = '<div class="space-y-3.5">';
             meals.forEach(meal => {
-                const dishList = meal.DDISH_NM.split('<br/>').map(dish => `<li class="py-1 border-b border-slate-100 dark:border-slate-700/60 text-xs font-semibold text-slate-700 dark:text-slate-200">${dish.trim()}</li>`).join('');
+                const dishList = meal.DDISH_NM.split('<br/>').map(dish => `
+                    <li class="py-1.5 border-b border-dashed border-emerald-200/70 dark:border-teal-800/70 text-xs font-bold text-slate-700 dark:text-purple-100 flex items-center gap-2 last:border-none">
+                        <span class="text-emerald-400 text-[10px]">●</span>
+                        <span>${dish.trim()}</span>
+                    </li>
+                `).join('');
 
                 html += `
-                    <div class="bg-slate-50 dark:bg-slate-700/40 border border-slate-200 dark:border-slate-700 rounded-2xl p-4">
-                        <div class="flex items-center justify-between mb-2">
-                            <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">${meal.MMEAL_SC_NM}</h3>
-                            <span class="text-[10px] font-bold text-emerald-600 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-900/50 px-2 py-0.5 rounded-full">${meal.CAL_INFO}</span>
+                    <div class="bg-emerald-50/50 dark:bg-teal-950/30 border-2 border-emerald-200/80 dark:border-teal-800/70 rounded-[1.5rem] p-4">
+                        <div class="flex items-center justify-between mb-2.5">
+                            <h3 class="font-cute text-base text-emerald-700 dark:text-emerald-200 flex items-center gap-1.5">
+                                <span>🥄</span> ${meal.MMEAL_SC_NM}
+                            </h3>
+                            <span class="text-[11px] font-bold text-emerald-700 dark:text-emerald-200 bg-white dark:bg-teal-900/70 border border-emerald-200 dark:border-teal-700 px-2.5 py-0.5 rounded-full shadow-xs">🔥 ${meal.CAL_INFO}</span>
                         </div>
-                        <ul>${dishList}</ul>
+                        <ul class="bg-white/80 dark:bg-nightCard/80 rounded-2xl px-3.5 py-1.5 border border-emerald-100 dark:border-teal-900">${dishList}</ul>
                     </div>
                 `;
             });
@@ -1669,13 +1785,13 @@
 
         function getScheduleCategoryBadge(eventName) {
             if (eventName.includes('시험') || eventName.includes('고사') || eventName.includes('수능') || eventName.includes('평가')) {
-                return { label: '지필/평가', class: 'bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-300' };
+                return { label: '✏️ 지필/평가', class: 'bg-rose-100 text-rose-700 dark:bg-rose-900/60 dark:text-rose-200 border border-rose-200 dark:border-rose-700' };
             } else if (eventName.includes('방학') || eventName.includes('휴업') || eventName.includes('개교기념')) {
-                return { label: '휴업/방학', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-300' };
+                return { label: '🍀 휴업/방학', class: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/60 dark:text-emerald-200 border border-emerald-200 dark:border-emerald-700' };
             } else if (eventName.includes('축제') || eventName.includes('새별제') || eventName.includes('체험') || eventName.includes('체육') || eventName.includes('유연화')) {
-                return { label: '학교행사', class: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300' };
+                return { label: '🎉 학교행사', class: 'bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-200 border border-amber-200 dark:border-amber-700' };
             } else {
-                return { label: '학사/일반', class: 'bg-blue-100 text-blue-700 dark:bg-blue-900/60 dark:text-blue-300' };
+                return { label: '📘 학사/일반', class: 'bg-sky-100 text-sky-700 dark:bg-sky-900/60 dark:text-sky-200 border border-sky-200 dark:border-sky-700' };
             }
         }
 
@@ -1705,10 +1821,10 @@
 
             if (processedEvents.length === 0) {
                 scheduleContainer.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-48 text-slate-400 text-center border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl">
-                        <span class="text-3xl mb-1">🗓️</span>
-                        <p class="text-xs font-bold text-slate-600 dark:text-slate-300">이달의 등록된 학사일정이 없습니다.</p>
-                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="mt-2 text-[11px] text-blue-600 dark:text-blue-400 hover:underline font-bold">
+                    <div class="flex flex-col items-center justify-center h-48 text-sky-400 text-center border-2 border-dashed border-sky-200 dark:border-sky-800 rounded-[1.75rem] bg-sky-50/30 dark:bg-sky-950/20">
+                        <span class="text-4xl mb-2">🗓️</span>
+                        <p class="font-cute text-base text-slate-700 dark:text-purple-100">이달에 등록된 학사일정이 없어요!</p>
+                        <a href="https://in-hyoseong.icehs.kr/schdList.do?m=0204&s=hyoseong" target="_blank" rel="noopener noreferrer" class="mt-2 text-xs text-sky-600 dark:text-sky-300 hover:underline font-bold">
                             학교 홈페이지 학사일정 직접 확인하기 ↗
                         </a>
                     </div>
@@ -1720,15 +1836,16 @@
             processedEvents.forEach(item => {
                 const badge = getScheduleCategoryBadge(item.name);
                 html += `
-                    <div class="flex items-center justify-between p-3 rounded-2xl border border-slate-100 dark:border-slate-700/80 bg-slate-50 dark:bg-slate-700/40 hover:bg-blue-50/50 dark:hover:bg-slate-700 transition">
+                    <div class="flex items-center justify-between p-3 rounded-[1.35rem] border-2 border-sky-100/90 dark:border-sky-900/60 bg-sky-50/40 dark:bg-sky-950/30 hover:bg-sky-100/50 dark:hover:bg-sky-900/40 transition hover:-translate-y-0.5">
                         <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-2xl bg-blue-600 text-white flex flex-col items-center justify-center font-black text-xs shrink-0 shadow-sm">
-                                <span class="text-[9px] font-medium opacity-80">${month}월</span>
-                                <span>${item.day}일</span>
+                            <!-- 귀여운 탁상 달력 모양 날짜 아이콘 -->
+                            <div class="w-11 h-11 rounded-2xl bg-white dark:bg-nightCard border-2 border-sky-200 dark:border-sky-700 flex flex-col items-center justify-center font-bold text-xs shrink-0 shadow-xs overflow-hidden">
+                                <span class="w-full text-center bg-gradient-to-r from-sky-400 to-indigo-400 text-white text-[9px] py-0.5 font-bold">${month}월</span>
+                                <span class="text-slate-700 dark:text-white text-sm font-extrabold leading-tight my-auto">${item.day}</span>
                             </div>
                             <div class="space-y-0.5">
-                                <h3 class="text-xs font-bold text-slate-800 dark:text-slate-100">${item.name}</h3>
-                                ${item.desc ? `<p class="text-[10px] text-slate-400 dark:text-slate-400">${item.desc}</p>` : ''}
+                                <h3 class="text-xs font-bold text-slate-800 dark:text-white">${item.name}</h3>
+                                ${item.desc ? `<p class="text-[10px] font-medium text-slate-400 dark:text-purple-300">${item.desc}</p>` : ''}
                             </div>
                         </div>
                         <span class="text-[10px] font-bold px-2.5 py-1 rounded-full shrink-0 ${badge.class}">
