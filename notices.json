@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-17T17:52:35+09:00",
-  "last_attempt_at": "2026-11-17T19:25:11+09:00",
-  "status": "error",
-  "error": "공지사항 (3202) page 1: table.bbsList is missing",
+  "updated_at": "2026-11-18T09:03:55+09:00",
+  "last_attempt_at": "2026-11-18T09:03:55+09:00",
+  "status": "ok",
+  "error": null,
   "sources": [
     {
       "category": "notice",
@@ -1089,22 +1089,6 @@
       "title": "인하공업전문대학 연계 진로체험프로그램 참가신청 안내 가정통신문",
       "date": "2025-11-19",
       "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33353318&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
-    },
-    {
-      "id": "3202:33345188",
-      "board_id": "3202",
-      "category": "notice",
-      "title": "2026. 3. 1.자 교사초빙제 운영 공고",
-      "date": "2025-11-17",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33345188&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0209&s=in_hyoseong"
-    },
-    {
-      "id": "3215:33348170",
-      "board_id": "3215",
-      "category": "letter",
-      "title": "전국학교비정규직연대회의 총파업에 따른 대체급식 실시",
-      "date": "2025-11-17",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33348170&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
     }
   ]
 }
