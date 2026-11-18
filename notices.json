@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-18T09:03:55+09:00",
-  "last_attempt_at": "2026-11-18T09:03:55+09:00",
+  "updated_at": "2026-11-18T13:15:49+09:00",
+  "last_attempt_at": "2026-11-18T13:15:49+09:00",
   "status": "ok",
   "error": null,
   "sources": [
@@ -18,6 +18,14 @@
     }
   ],
   "notices": [
+    {
+      "id": "3202:34354834",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027학년도 대학수학능력시험 추가 유의사항 안내(필독)",
+      "date": "2026-11-18",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34354834&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
     {
       "id": "3202:34351178",
       "board_id": "3202",
@@ -200,7 +208,7 @@
       "category": "notice",
       "title": "2027학년도 대학수학능력시험 원서 접수 안내 (인천효성고 졸업생용)",
       "date": "2026-08-18",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34044726&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34044726&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
     },
     {
       "id": "3215:34045010",
@@ -448,7 +456,7 @@
       "category": "notice",
       "title": "2026년도 제2회 인천광역시교육청 교육공무직원 공개채용 시험 홍보",
       "date": "2026-04-15",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33718390&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33718390&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33713748",
@@ -632,7 +640,7 @@
       "category": "notice",
       "title": "「2026학년도 항공우주아카데미」 신청 안내",
       "date": "2026-03-24",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33625026&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33625026&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33625010",
@@ -768,7 +776,7 @@
       "category": "notice",
       "title": "2026학년도 인천효성고등학교운영위원회 교원위원선출을 다음과 같이 공고합니다.",
       "date": "2026-03-05",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33533848&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33533848&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33533834",
@@ -896,7 +904,7 @@
       "category": "notice",
       "title": "학교 운동부(볼링) 지도자 공개 채용",
       "date": "2026-01-19",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33477478&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33477478&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33477084",
@@ -1024,7 +1032,7 @@
       "category": "notice",
       "title": "2026학년도 대학수학능력시험 성적통지표 온라인 출력안내(졸업생 등)",
       "date": "2025-12-07",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33408946&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33408946&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0209&s=in_hyoseong"
     },
     {
       "id": "3215:33407246",
