@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T19:24:09+09:00",
-  "last_attempt_at": "2026-11-19T19:24:09+09:00",
+  "updated_at": "2026-11-20T08:58:47+09:00",
+  "last_attempt_at": "2026-11-20T08:58:47+09:00",
   "status": "ok",
   "error": null,
   "sources": [
@@ -1081,22 +1081,6 @@
       "title": "2025학년도 2학기 2회고사 실시 안내 가정통신문",
       "date": "2025-11-25",
       "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33368552&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
-    },
-    {
-      "id": "3215:33354038",
-      "board_id": "3215",
-      "category": "letter",
-      "title": "2025학년도 따뜻한 말 나누기 가정통신문",
-      "date": "2025-11-19",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33354038&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
-    },
-    {
-      "id": "3215:33353318",
-      "board_id": "3215",
-      "category": "letter",
-      "title": "인하공업전문대학 연계 진로체험프로그램 참가신청 안내 가정통신문",
-      "date": "2025-11-19",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33353318&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
     }
   ]
 }
