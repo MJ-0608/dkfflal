@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-23T13:30:12+09:00",
-  "last_attempt_at": "2026-11-23T13:30:12+09:00",
+  "updated_at": "2026-11-23T19:30:03+09:00",
+  "last_attempt_at": "2026-11-23T19:30:03+09:00",
   "status": "ok",
   "error": null,
   "sources": [
@@ -18,6 +18,14 @@
     }
   ],
   "notices": [
+    {
+      "id": "3202:34367256",
+      "board_id": "3202",
+      "category": "notice",
+      "title": "2027. 3. 1.자 교사초빙제 운영 공고(2차)",
+      "date": "2026-11-23",
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34367256&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+    },
     {
       "id": "3202:34363806",
       "board_id": "3202",
@@ -192,7 +200,7 @@
       "category": "notice",
       "title": "[안내] 제12회 인천수학축전 인천수학사랑지원단(학생위원) 모집",
       "date": "2026-09-10",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34130000&lev=0&action=view&searchType=S&statusYN=W&page=1&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=34130000&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
     },
     {
       "id": "3215:34109440",
@@ -408,7 +416,7 @@
       "category": "notice",
       "title": "2026년 학생 식습관 및 학교급식 실태조사(학부모 및 교직원 대상) 안내",
       "date": "2026-05-11",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33786720&lev=0&action=view&searchType=S&statusYN=W&page=2&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33786720&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
     },
     {
       "id": "3215:33781036",
@@ -608,7 +616,7 @@
       "category": "notice",
       "title": "제25기 학교운영위원회 지역위원 당선자 공고",
       "date": "2026-03-27",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33641696&lev=0&action=view&searchType=S&statusYN=W&page=3&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33641696&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
     },
     {
       "id": "3215:33639202",
@@ -744,7 +752,7 @@
       "category": "notice",
       "title": "학교운영위원회 학부모위원 선거 공보 발송",
       "date": "2026-03-13",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33571750&lev=0&action=view&searchType=S&statusYN=W&page=4&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33571750&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33565470",
@@ -896,7 +904,7 @@
       "category": "notice",
       "title": "2026학년도 교육공무직원(과학실무사) 채용 공고",
       "date": "2026-01-30",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33485508&lev=0&action=view&searchType=S&statusYN=W&page=5&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33485508&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33482890",
@@ -1000,7 +1008,7 @@
       "category": "notice",
       "title": "2025 결대로자람학교 성장평가 결과보고서",
       "date": "2025-12-17",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33435644&lev=0&action=view&searchType=S&statusYN=W&page=6&m=0209&s=in_hyoseong"
+      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3202&viewBoardID=3202&boardSeq=33435644&lev=0&action=view&searchType=S&statusYN=W&page=7&m=0209&s=in_hyoseong"
     },
     {
       "id": "3202:33418246",
