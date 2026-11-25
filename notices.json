@@ -1,6 +1,6 @@
 {
   "updated_at": "2026-11-24T19:25:32+09:00",
-  "last_attempt_at": "2026-11-25T09:02:04+09:00",
+  "last_attempt_at": "2026-11-25T13:28:43+09:00",
   "status": "error",
   "error": "공지사항 (3202) page 1: table.bbsList is missing",
   "sources": [
