@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-25T19:26:43+09:00",
-  "last_attempt_at": "2026-11-25T19:26:43+09:00",
+  "updated_at": "2026-11-26T09:04:14+09:00",
+  "last_attempt_at": "2026-11-26T09:04:14+09:00",
   "status": "ok",
   "error": null,
   "sources": [
@@ -1089,14 +1089,6 @@
       "title": "2025학년도 「학생·학부모 12월 진로특강」 안내 가정통신문",
       "date": "2025-12-04",
       "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33398858&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
-    },
-    {
-      "id": "3215:33368552",
-      "board_id": "3215",
-      "category": "letter",
-      "title": "2025학년도 2학기 2회고사 실시 안내 가정통신문",
-      "date": "2025-11-25",
-      "url": "https://in-hyoseong.icehs.kr/boardCnts/updateCnt.do?boardID=3215&viewBoardID=3215&boardSeq=33368552&lev=0&action=view&searchType=S&statusYN=W&page=8&m=0201&s=in_hyoseong"
     }
   ]
 }
